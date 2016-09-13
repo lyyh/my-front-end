@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>闭包问题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+       function onMyLoad() {
+	/*
+	抛出问题:
+	    此题的目的是想每次点击对应目标时弹出对应的数字下标 0~4,但实际是无论点击哪个目标都会弹出数字5
+	问题所在:
+	    arr 中的每一项的 onclick 均为一个函数实例(Function 对象),这个函数实例也产生了一个闭包域,
+	    这个闭包域引用了外部闭包域的变量,其 function scope 的 closure 对象有个名为 i 的引用,
+	    外部闭包域的私有变量内容发生变化,内部闭包域得到的值自然会发生改变
+	var arr = document.getElementsByTagName("p");
+	for(var i = 0; i < arr.length;i++){
+	    arr[i].onclick = function(){
+	        alert(i);
+	    }
+	}
+	*/
+	var events = new ProxyEvents();
+	events.fun8()
+}
+
+function ProxyEvents() {}
+ProxyEvents.prototype = {
+	fun1: function() {
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			//尽管引用i的值发生改变，但是本地私有变量(形参arg)不会发生改变
+			(function(arg) {
+				arr[i].onclick = function() {
+					alert(arg);
+				}
+			})(i)
+		}
+	},
+	fun2: function() {
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			//将循环体变量i的值赋给数组项对象p的i属性
+			//当前p对象的属性i并不是循环体变量i的引用
+			//基本数据的值都是存在于栈中，当一个基本数据类型声明等于另一个基本数据类型的值时，他们并不指向同一个值，各自有各自的值，不过值相等
+			arr[i].i = i;
+			arr[i].onclick = function() {
+				alert(this.i);
+			}
+		}
+	},
+	fun3: function() {
+		/*
+        			增加若干个闭包空间来存储下标
+        			事件绑定在新增的匿名函数返回的函数上
+				 */
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			arr[i].onclick = (function(arg) {
+				return function() {
+					alert(arg)
+				}
+			})(i)
+		}
+	},
+	fun4: function() {
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			//与方法一相似
+			(function() {
+				var tmp = i;
+				arr[i].onclick = function() {
+					alert(tmp);
+				}
+			})();
+		}
+	},
+	fun5: function() {
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			arr[i].onclick = (function() {
+				var tmp = i;
+				return function() {
+					alert(tmp);
+				}
+			})()
+		}
+	},
+	fun6: function() {
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			// 将下标添加为绑定函数的属性
+			(arr[i].onclick = function() {
+				alert(arguments.callee.i);
+			}).i = i;
+		}
+	},
+	fun7: function() {
+		var arr = document.getElementsByTagName("p");
+		//通过new使用Function的构造函数 创建Function实例
+		for (var i = 0; i < arr.length; i++) {
+			arr[i].onclick = new Function('alert(' + i + ')');
+		}
+	},
+	fun8: function() {
+		for (var i = 0; i < arr.length; i++) {
+			arr[i].onclick = Function("alert(" + i + ");");
+		}
+	},
+	fun9: function() {
+		"use strict"; //使用严格模式,否则报错 SyntaxError: Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
+		var arr = document.getElementsByTagName("p");
+		for (var i = 0; i < arr.length; i++) {
+			let j = i; //创建一个块级变量
+			arr[i].onclick = function() {
+				alert(j);
+			}
+		}
+	}
+}
+</script>
+</head>
+<body onload="onMyLoad()">
+    <p>产品一</p>
+    <p>产品二</p>
+    <p>产品三</p>
+    <p>产品四</p>
+    <p>产品五</p>
+</body>
+</html>
