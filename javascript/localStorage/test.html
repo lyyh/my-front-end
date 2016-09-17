@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript">
+	
+    // document.write(localStorage.lastname);
+    function setCookie(name,value,time)
+{ 
+    var strsec = getsec(time); 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + strsec*1); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+} 
+function getsec(str)
+{ 
+   alert(str); 
+   var str1=str.substring(1,str.length)*1; 
+   var str2=str.substring(0,1); 
+   if (str2=="s")
+   { 
+        return str1*1000; 
+   }
+   else if (str2=="h")
+   { 
+       return str1*60*60*1000; 
+   }
+   else if (str2=="d")
+   { 
+       return str1*24*60*60*1000; 
+   } 
+} 
+
+
+// setCookie("name","hayden","h1");
+
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+// getCookie('name')
+// alert(getCookie('name'))
+</script>
+</body>
+</html>
