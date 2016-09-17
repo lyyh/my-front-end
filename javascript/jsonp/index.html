@@ -11,7 +11,38 @@
 <link href="" rel="stylesheet">
 </head>
 <body>
-    <script type="text/javascript" src=''></script>
-    <script type="text/javascript" src="http://192.168.1.102:3000/passport/register?account=123"></script>
+	<!-- 动态生成script的方式 -->
+	Pirce is <span id="price"></span>
+    <script type="text/javascript">
+    	function getPrice(data){
+    		document.getElementById('price').innerHTML = data.price;
+    	}
+
+    	//url
+    	var url = 'http://127.0.0.1:8080/cross-domain?callback=getPrice'
+    	//动态生成script标签
+    	var script = document.createElement('script');
+    	script.setAttribute('src',url);
+    	document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+
+	<!-- jquery 封装的jsonp -->
+    Price is <span id="price1"></span>
+	<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: url,
+			type: 'get',
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			jsonpCallback: 'getPrice',
+			success:function(data){
+				$('#price1').html(data.price);
+			},
+			error:function(err){
+				console.log(err);
+			}
+		})
+	</script>
 </body>
 </html>
