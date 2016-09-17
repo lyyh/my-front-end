@@ -27,3 +27,45 @@ try{
 }
 ```
 当调用localStorage.clear()时，整个域的数据会被清空，包括和当前页面共享一个存储空间的其他页面。
+
+### localStorage API
+```
+length：本地存储数据的个数
+setItem(key,value)：向key字段写入value数据
+getItem(key)：去key字段的数据
+removeItem(key)：移除key字段
+clear()：清空该域下的所有数据
+key(i)：获取第i个数据的key
+```
+我们还可以像操作一个Object一样操作localStorage
+```
+var ls=localStorage;
+ls['user']='John';
+ls.setItem('work','codding');
+console.info(ls.length); //2
+console.info(ls.user + ' is ' + ls.work); //John is codding
+ls['work']='debugging';
+console.info(ls.user + ' is ' + ls.work); //John is debugging
+delete ls['work'];
+for(var i in ls){
+  console.info(i + ' : ' + ls.getItem(i)); //user : John
+  ls.removeItem(i);
+}
+```
+唯一不同的是，对于一个不存在的字段notExist，localStorage.getItem(‘notExist’)会返回null，而localStorage[‘notExist’]则返回undefined。
+
+### 一些细节
+看到这里，你已经掌握了使用本地存储的方法了，下面的是我使用过程中的一些心得。
+本地存储只能存字符串数据，所有数据在写入的时候会被隐式调用toString方法转为字符串，即
+```
+var ls=localStorage;
+var data={
+  user:"John",
+  sex:"female"
+};
+ls.setItem('data',data);
+ls.setItem('realData',JSON.stringify(data));
+console.info(ls.data); //[object Object]
+console.info(ls.realData); //{"user":"John","sex":"female"}
+```
+因此，需要存储json之类的数据时，需要自己做转换。
