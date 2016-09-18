@@ -1,7 +1,7 @@
 ## localStorage
 H5提供了两种在客户端存储数据的方法  
-localStorage - 没有时间限制的数据存储  
-sessionStorage - 针对一个 session 的数据存储  
+localStorage - 没有时间限制的数据存储    
+sessionStorage - 针对一个 session 的数据存储    
 1. 之前都是用cookie来完成的，但是cookie不适合存储大量的数据，每个cookie只能存储大概4kb的大小。因为它们由每个对服务器的请求来传递，这使得 cookie 速度很慢而且效率也不高。    
 2. 在 HTML5 中，数据不是由每个服务器请求传递的，而是只有在请求时使用数据。它使在不影响网站性能的情况下存储大量数据成为可能。  
 3. 对于不同的网站，数据存储于不同的区域，并且一个网站只能访问其自身的数据。  

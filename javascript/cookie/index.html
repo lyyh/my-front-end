@@ -12,7 +12,38 @@
 </head>
 <body>
     <script type="text/javascript">
-    	document.cookie = 'name=123;'
+    	function setCookie(key,value,expireTime){
+    		var expires = new Date();
+    		expires.setTime(expires.getTime() + getSecond(expireTime));
+    		document.cookie = key + '=' +escape(value) + ((!expireTime)?'':';expires=' + expires.toGMTString())
+    	}
+
+    	function getSecond(timeStr){
+    		if(typeof timeStr != 'string' || !timeStr){
+    			return '';
+    		}
+
+    		var str1 = timeStr.substring(1,timeStr.length),
+    			str2 = timeStr.substring(0,1),
+    			sec = '';
+
+    		switch(str2){
+    			case 's':
+    			sec = str1 * 1000;
+    			break;
+    			case 'h':
+    			sec = str1 * 60 * 60 * 1000;
+    			break;
+    			case 'd':
+    			sec = str1 * 24 * 60 * 60 * 1000;
+    			break;
+    			default:
+    			sec = 1000;
+    		}
+    		return sec;
+    	}
+
+    	setCookie('account','123','s1');
     </script>
 </body>
 </html>
