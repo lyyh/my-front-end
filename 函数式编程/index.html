@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="height:100px;background-color:red" id='box'></div>
+    <script type="text/javascript">
+    /**
+     * 参数复用
+     * [addEvent description]
+     * @type {[type]}
+     */
+        var addEvent = (function() {
+            if (window.addEventListener) {
+                return function(el, type, fn, capture) {
+                    el.addEventListener(type, function(e) {
+                        fn.call(el, e)
+                    }, (capture))
+                }
+            } else {
+                return function(el, type,fn, capture) {
+                    el.attachEvent('on' + type, function(e) {
+                        fn.call(el, e);
+                    })
+                }
+            }
+        })()
+        addEvent(document.getElementById('box'),'click',function(event){
+            console.log(this);
+            console.log(event);
+        },false)
+
+        var currWeight = function(fn){
+          var _fishWeight = [];
+          return function(){
+            if(arguments.length == 0){
+              fn.apply(null, _fishWeight)
+            }else{
+              _fishWeight = _fishWeight.concat(Array.prototype.slice.call(arguments));
+            }
+          }
+        }
+        var fishWeight = 0;
+        var addWeight = currWeight(function(){
+          for(var i = 0;i < arguments.length;i++){
+            fishWeight += arguments[i];
+          }
+        })
+
+        addWeight(1)
+        addWeight(1)
+        addWeight(1)
+        addWeight(1)
+        addWeight();
+        console.log(fishWeight);
+    </script>
+</body>
+</html>

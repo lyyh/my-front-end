@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //js函数劫持
+    // var warn = alert;
+    // window.alert = function(t){
+    //     if(confirm("How are you")){
+    //       warn(t)
+    //     }
+    // }
+    // alert('help me!')
+
+    //封装的函数劫持
+    var hijack = function(obj,method,fun){
+      var orig = obj[method];
+      obj[method] = fun(orig);
+    }
+
+    hijack(window,'confirm',function(orig){
+      return function(text){
+        alert("help me!");
+        if(orig.call(this,text)){
+          alert('I am deading?');
+        }else{
+          alert('bye bye!');
+        }
+      }
+    })
+
+    confirm('what happened?')
+    // progress('help me')
+
+
+  </script>
+</body>
+</html>
