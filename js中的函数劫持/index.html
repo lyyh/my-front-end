@@ -17,27 +17,57 @@
     // }
     // alert('help me!')
 
-    //封装的函数劫持
-    var hijack = function(obj,method,fun){
-      var orig = obj[method];
-      obj[method] = fun(orig);
-    }
+    // var warn  = alert;
+    // window.alert = function(t){
+    //   if(confirm('How are you')){
+    //     warn(t);
+    //   }
+    // }
+    // alert('help me!')
 
-    hijack(window,'confirm',function(orig){
+    //封装的函数劫持
+    // var hijack = function(obj,method,fun){
+    //   var orig = obj[method];
+    //   obj[method] = fun(orig);
+    // }
+    //
+    // hijack(window,'confirm',function(orig){
+    //   return function(text){
+    //     alert("help me!");
+    //     if(orig.call(this,text)){
+    //       alert('I am deading?');
+    //     }else{
+    //       alert('bye bye!');
+    //     }
+    //   }
+    // })
+    //
+    // confirm('what happened?')
+    // progress('help me')
+    // var warn  = alert
+    // window.alert = function(t){
+    //     if(confirm('help me')){
+    //       warn(t);
+    //     }
+    // }
+    // alert('hello?')
+    var hijack = function(obj,method,fn){
+      let orig = obj[method];
+      obj[method] = fn(orig);
+    }
+    var fun = function(orig){
       return function(text){
-        alert("help me!");
+        alert('help me?')
         if(orig.call(this,text)){
           alert('I am deading?');
         }else{
           alert('bye bye!');
         }
       }
-    })
+    }
 
-    confirm('what happened?')
-    // progress('help me')
-
-
+    hijack(window,'confirm',fun);
+    confirm('hello world?');
   </script>
 </body>
 </html>
