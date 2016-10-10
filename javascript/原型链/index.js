@@ -36,3 +36,4 @@ p.a = 12; // 创建 p 的自身属性a.
 console.log(p.m()); // 13
 console.log(p.__proto__)
 console.log(p.hasOwnProperty('a'))
+
