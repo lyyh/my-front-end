@@ -5,3 +5,6 @@ function *gen(){
 var g = gen();
 console.log(g.next(123))
 console.log(g.next())
+function a(){
+    console.log(123)
+}
