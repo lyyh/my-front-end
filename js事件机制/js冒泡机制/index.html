@@ -35,15 +35,27 @@
     </div>
     <script type="text/javascript">
     	document.getElementsByClassName('box')[0].addEventListener('click',function(e){
-    			console.log(e.srcElement);
+    			var src = e.target || e.srcElement;
+                console.log(src);
+                console.log(e.target);
+                console.log(e.srcElement)
     			console.log('box')
-    	})
+    	},true)
     	document.getElementsByClassName('box-1')[0].addEventListener('click',function(){
     			console.log('box-1')
     	})
-    	document.getElementsByClassName('box-2')[0].addEventListener('click',function(){
+    	document.getElementsByClassName('box-2')[0].addEventListener('click',function(e){
+                //停止事件传播
+                e.stopPropagation();
     			console.log('box-2')
     	})
+        //自定义实现事件委托
+        // function myJquery(){}
+        // myJquery.prototype.on = function(event,childSelector,data,function,map){
+        //     if(typeof arguments[2] == 'function'){
+
+        //     }
+        // }
     </script>
 </body>
 </html>
