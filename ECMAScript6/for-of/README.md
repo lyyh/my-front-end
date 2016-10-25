@@ -10,8 +10,10 @@ for(var i in arr){
 ### for-of
 1. 对数组进行循环的最简洁最直接的方法
 2. 避免了for-in的所有缺点
-3. 不同于forEach(),可以配合break,return,continue一起使用
+3. 不同于forEach(),可以配合break,return,continue一起使用,for-in也一样
 
 #### for-of 与 for-in的区别
 for-of是在对象的属性上进行循环，for-in是在数据上进行循环，如数组中的值。    
-for-of不仅仅在数组上使用，也可以在数组的类似对象是使用,如DOM NodeList。也可使用于字符串，其将字符串作为Unicode字符序列进行处理。也可使用与Map、set对象  
+for-of不仅仅在数组上使用，也可以在数组的类似对象是使用,如DOM NodeList。也可使用于字符串，其将字符串作为Unicode字符序列进行处理。也可使用与Map、set对象    
+for-of 在普通的旧的对象上不能正常工作，但是如果你想要在一个对象的属性上进行循环的话，你可以使用 for–in ( 本来就是它的功能 ) 或者内置的 Object.keys( ) :  
+
