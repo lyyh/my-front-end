@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>a标签的伪类</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.link-1:visited{
+		color:red;
+	}
+	.link-1:link{
+		color: green;
+	}
+	.link-1:hover{
+		color:black;
+	}
+	.link-1:active{
+		color: gray;
+	}
+	.link-2:link{
+		color:#F3ED33;
+	}
+	.box{
+		height: 100px;
+		background-color: #D86CF3
+	}
+	.box::before{
+		content: "123123";
+		display: block;
+		visibility: visible;
+		overflow: hidden;
+		clear: both;
+	}
+	p:first-child{
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+    <a href="http://www.jianshu.com/p/f6332d05ffbf" class="link-1">a标签伪类--简书</a>
+    <a href="http://www.jianshu.com/p/f6332d05ffbf" class="link-2">a标签伪类--简书</a>
+    <div>
+    	<p>123</p>
+		<p>123</p>
+    </div>
+</body>
+</html>
