@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
+<title>NodeList 死循环</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id="divAnchor">
+        <a href="http://www.cnblogs.com/jeffwongishandsome/">link test</a>
+</div>
+    <script type="text/javascript">
+    	var anchors = document.getElementsByTagName("a"),
+    		len = anchors.length;
+
+    		// var queryAnchors = document.querySelectorAll('a');
+    	// var anchors = null;
+    	// try{
+    	// 	anchors = Array.prototype.slice.call(links);
+    	// }catch(e){
+    	// 	console.log(1)
+    	// 	anchors = new Array();
+    	// 	for(var j = 0;j < links.length;j++){
+    	// 		anchors.push(links[j]);
+    	// 	}
+    	// }
+		for (var i = 0; i < queryAnchors.length; i++) { 
+			var ele= document.createElement("a");  
+			ele.setAttribute("href", "http://www.cnblogs.com/jeffwongishandsome/"); 
+			ele.appendChild(document.createTextNode("new link test")); 
+			document.getElementById("divAnchor").appendChild(ele); //div附加一个新链接<br>  
+		}
+    </script>
+</body>
+</html>

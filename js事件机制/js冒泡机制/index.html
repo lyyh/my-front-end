@@ -35,13 +35,18 @@
     </div>
     <input type="text" name="text" id="text">
     <script type="text/javascript">
+      var nodeList = document.getElementsByTagName('div');
+      console.log(typeof nodeList === 'array')
+      // document.getElementsByClassName('box')
+      // document.getELementsByClassName("box");
+      // console.log(document.querySelector(".box"))
       // if(window.attachEvent){
       //   document.querySelector("#box-2").onmouse
       // }
-    	document.getElementsByClassName('box')[0].addEventListener('click',function(e){
-    			var src = e.target || e.srcElement;
-    			console.log('box')
-    	})
+    	// document.getElementsByClassName('box')[0].addEventListener('click',function(e){
+    	// 		var src = e.target || e.srcElement;
+    	// 		console.log('box')
+    	// })
     	// document.getElementsByClassName('box-1')[0].addEventListener('onclick',function(){
     	// 		console.log('box-1')
     	// })
@@ -60,13 +65,13 @@
        // document.getElementsByClassName('box-1')[0].addEventListener('click',function(){
        //          console.log('box-13')
        //  })
-       document.getElementsByClassName("box-1")[0].onclick = function(){
-        
-        console.log(1)
-       }
-       document.getElementsByClassName("box-2")[0].onclick = function(){
-        console.log(2)
-       }
+       // document.getElementsByClassName("box-1")[0].onclick = function(){
+
+       //  console.log(1)
+       // }
+       // document.getElementsByClassName("box-2")[0].onclick = function(){
+       //  console.log(2)
+       // }
        // document.getElementsByClassName("box-3")[0].onclick = function(){
        //  console.log(3)
        // }

@@ -10,3 +10,9 @@ var obj = {
 }
 
 console.log(obj.getName()());
+
+function a(){
+	
+	console.log(typeof arguments == 'array')
+}
+a()
