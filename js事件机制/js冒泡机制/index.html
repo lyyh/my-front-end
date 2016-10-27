@@ -30,26 +30,29 @@
 <body>
     <div class="box">
     	<div class='box-1'>
-    		<div class="box-2"></div>
+    		<div class="box-2" id="box-2"></div>
     	</div>
     </div>
     <script type="text/javascript">
-    	document.getElementsByClassName('box')[0].addEventListener('click',function(e){
-    			var src = e.target || e.srcElement;
-                // console.log(src);
-                // console.log(e.target);
-                // console.log(e.srcElement)
-    			console.log('box')
-    	})
-    	document.getElementsByClassName('box-1')[0].addEventListener('click',function(){
-    			console.log('box-1')
-    	})
-    	document.getElementsByClassName('box-2')[0].addEventListener('click',function(e){
-                //停止事件传播
-                e.stopPropagation();
+    	// document.getElementsByClassName('box')[0].addEventListener('click',function(e){
+    	// 		var src = e.target || e.srcElement;
+     //            // console.log(src);
+     //            // console.log(e.target);
+     //            // console.log(e.srcElement)
+    	// 		console.log('box')
+    	// })
+    	// document.getElementsByClassName('box-1')[0].addEventListener('click',function(){
+    	// 		console.log('box-1')
+    	// })
+    	// document.getElementsByClassName('box-2')[0].addEventListener('click',function(e){
+     //            //停止事件传播
+     //            e.stopPropagation();
              
-    			console.log('box-2')
-    	})
+    	// 		console.log('box-2')
+    	// })
+     //   document.getElementsByClassName('box-1')[0].attachEvent('click',function(){
+     //            console.log('box-1')
+     //    })
         //自定义实现事件委托
         // function myJquery(){}
         // myJquery.prototype.on = function(event,childSelector,data,function,map){
@@ -57,6 +60,10 @@
 
         //     }
         // }
+
+        document.getElementById("box-2").attachEvent('onclick',function(){
+        	console.log("box-2")
+        })
     </script>
 </body>
 </html>
