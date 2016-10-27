@@ -56,4 +56,12 @@ W3c明智的在这场争斗中选择了一个择中的方案。任何发生在w3
 #### addEventListener
 addEventListener在 IE11、Chrome 、Firefox、Safari等浏览器都得到支持。  
 #### attachEvent
-attachEvent主要用于IE浏览器，并且仅在IE10及以下才支持，IE11已经废了这个方法了（微软还是挺识趣的，慢慢向标准靠拢）。  
+attachEvent主要用于IE浏览器，并且仅在IE10及以下才支持，IE11已经废了这个方法了（微软还是挺识趣的，慢慢向标准靠拢）。 
+
+事件处理函数中，我们通常使用this来获取当前被操作的对象。这无疑是很方便的一个特性， 但对于不同的事件绑定方式，this可能不一定是当前被操作的对象。 本文便来分析不同的方式绑定事件处理函数时，函数中this的区别。常见的事件绑定方式不外乎4种：
+
+attachEvent：IE10以下（不包括IE10）的MSIE中。
+addEventListener：支持DOM Level 2 Event的浏览器中。
+el.onclick=function(){}：这是古老的事件绑定方式。
+<a onclick='handle()'>：这是最古老的事件绑定方式。
+jQuery：jQuery也提供了很多方法来方便地绑定事件。
