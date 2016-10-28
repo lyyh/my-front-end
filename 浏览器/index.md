@@ -34,7 +34,14 @@ document.getElementById("btn").onclick = method3;如果这样写,那么将会只
 
 btn1Obj.addEventListener("click",method1,false); 
 btn1Obj.addEventListener("click",method2,false); 
-btn1Obj.addEventListener("click",method3,false);执行顺序为method1->method2->method3 
+btn1Obj.addEventListener("click",method3,false);执行顺序为method1->method2->method3     
+
+在IE中我们可以使用attachEvent方法
+btn1Obj.attachEvent("onclick",method1);
+btn1Obj.attachEvent("onclick",method2);
+btn1Obj.attachEvent("onclick",method3);
+使用格式是前面是事件类型,注意的是需要加on,比如onclick,onsubmit,onchange,执行顺序是
+method3->method2->method1  
 
  
 #### querySelectorAll document.getElement 兼容性
