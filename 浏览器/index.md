@@ -48,6 +48,8 @@ method3->method2->method1
 querySelectorAll 已被 IE 8+、FF 3.5+、Safari 3.1+、Chrome 和 Opera 10+ 良好支持 。
 getElementsBy 系列，以最迟添加到规范中的 getElementsByClassName 为例，IE 9+、FF 3 +、Safari 3.1+、Chrome 和 Opera 9+ 都已经支持该方法了。  
 
+getElementsByClassName 不支持Ie
+
 1. querySelectorAll 得到的是静态的NodeList  
 2. document.getElementsBy 得到的是动态的NodeList，每次调用都会对文档进行重新查询  
 3. 所以在现代浏览器中，querySelectorAll 的返回值是一个静态的 NodeList 对象，而 getElementsBy 系列的返回值实际上是一个 HTMLCollection 对象 。  
