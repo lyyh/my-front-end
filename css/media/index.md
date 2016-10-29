@@ -16,6 +16,5 @@
 </style>
 ```
 
-注意:
-1.使用link元素中的css media query之后还有在样式表中使用css media query才能生效
-2.可以直接使用样式表中的css media query
+
+注意:link元素 与 样式表 两种方式都可以
