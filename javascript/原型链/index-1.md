@@ -35,6 +35,8 @@ prototype是构造函数的属性,__proto__是对象的属性
 ### Function
 Function.prototype == function(){}  
 Function.__proto__ == function(){}  
+Function instanceof Function == true 
+Function instanceof Object = true
 
 ### Object
 Object.prototype == Object {}
@@ -47,3 +49,6 @@ Array.__proto__ == function(){}
 ### Date
 Date.prototype == Object {}
 Date.__proto__ == function(){}
+
+##基本包装类型
+Number Boolean String
