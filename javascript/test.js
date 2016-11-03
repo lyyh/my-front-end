@@ -13,7 +13,6 @@ console.log(arr)
 function foo(){
 	var array = Array.prototype.slice.call(arguments)
 	console.log(array)
-	// console.log(typeof arguments)
 }
 foo(1,2,3)
 
