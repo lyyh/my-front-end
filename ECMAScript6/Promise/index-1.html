@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div class='box'></div>
+    <script type="text/javascript">
+    	let getJSON = url => {
+    		let handler = () => {
+				if(this.readystate !== 4){
+					console.log(123)
+					return;
+				}
+				if(this.status ===  200)resolve(this.response);
+				else rejected(new Error(this.statusText));
+    		}
+
+    		let promise = new Promise((resolve,rejected)=>{
+    			let client = new XMLHttpRequest();
+    			client.open('get',url);
+    			
+    			client.onreadystatechange = function(){
+    				if(this.readyState !== 4){
+						return;
+					}
+					if(this.status ===  200)resolve(this.response);
+					else rejected(new Error(this.statusText));
+    			}
+
+    			client.responseType = 'json';
+    			client.setRequestHeader('Accept','application/json');
+    			client.send();
+    		})
+
+    		return promise;
+    	}
+
+    	getJSON('http://127.0.0.1:3000/getJSON')
+    	.then(json => {
+    		console.log("Contents is",json);
+    	},error =>{
+    		console.log('error!',error);
+    	})
+// var getJSON = function(url) {
+//   var promise = new Promise(function(resolve, reject){
+//     var client = new XMLHttpRequest();
+//     client.open("GET", url);
+//     client.onreadystatechange = handler;
+//     client.responseType = "json";
+//     // client.setRequestHeader("Accept", "application/json");
+//     client.send();
+
+//     function handler() {
+//       if (this.readyState !== 4) {
+//         return;
+//       }
+//       if (this.status === 200) {
+//         resolve(this.response);
+//       } else {
+//         reject(new Error(this.statusText));
+//       }
+//     };
+//   });
+
+//   return promise;
+// };
+
+// getJSON("http://127.0.0.1:3000/getJSON").then(function(json) {
+//   console.log(json);
+// }, function(error) {
+//   console.error('出错了', error);
+// });
+    </script>
+</body>
+</html>
