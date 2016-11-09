@@ -9,18 +9,35 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
+<style type="text/css">
+	.bc_sow_gray{
+		background-color: #ddd;
+	}
+	.bc_gray{
+		background-color: #ccc;
+	}
+	.box{
+		height: 150px;
+		background-color: #ddd;
+	}
+	.box:after{
+		content: '';
+		display: inline-block;
+		width: 0px;
+	}
+	.box:before{
+		content: '';
+		display: inline-block;
+		width: 0px;
+	}
+	.item{
+		height: 80px;
+	}
+</style>
 </head>
 <body>
-    <script type="text/javascript">
-		// // var Foo = function(){
-		// // 	console.log(arguments)
-		// // 	this.a = 1;
-		// // 	console.log(this === window)
-		// // }		
-		// // Foo.call(null,1)
-		// function a(){}
-		// var a = function(){}
-		// function a(){}()
-    </script>
+	<div class="box bc_sow_gray">
+		<div class="item bc_gray"></div>
+	</div>
 </body>
 </html>
