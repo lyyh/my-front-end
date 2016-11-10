@@ -1,3 +1,4 @@
 ## js 单线程_事件队列_事件循环
 [js 单线程_事件队列_事件循环](http://transcoder.baidu.com/from=1099b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_2001%2Cta%40iphone_1_10.1_3_602/baiduid=174A8C57B31F436559037207FF8FABA3/w=0_10_/t=iphone/l=3/tc?ref=www_iphone&lid=2570588856940523893&order=1&fm=alop&tj=www_normal_1_0_10_title&vit=osres&m=8&srd=1&cltj=cloud_title&asres=1&nt=wnor&title=JS%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E7%AE%80%E4%BB%8B-Tirion-%E5%8D%9A%E5%AE%A2%E5%9B%AD&dict=30&w_qd=IlPT2AEptyoA_yiPDsR8w_Tj_YA2aCNA7K&sec=16519&di=712f47c54d76a06a&bdenc=1&tch=124.0.22.160.0.0&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IEQGG_ytK1DK6mlrte4viZQRAETH5NG0TUS4dgTCctBc1wX3f_8hunM5X&eqid=23ac90f2218472001000000658217b3a&wd=&clk_info=%7B%22srcid%22%3A%221599%22%2C%22tplname%22%3A%22www_normal%22%2C%22t%22%3A1478589256739%2C%22xpath%22%3A%22div-a-h3%22%7D)  
 [js 运行机制事件循环](http://m.jb51.net/article/56022.htm)
+

@@ -1,6 +1,7 @@
 ### Object assign
 Object assign 用于方法的合并，将源对象的所有可枚举属性复制到目标对象中去
 
+源对象的可枚举属性合并到目标对象中去
 ### Object getPrototype
 ### Object setPrototype
 ### Object values

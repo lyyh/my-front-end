@@ -17,4 +17,9 @@ document.querySelectorAll("div .li");//返回class为li的div
 总结 ：
 得到的元素不是需要很麻烦的多次getElementBy..的话，尽量使用getElementBy..,因为他快些。
 得到的元素需要很麻烦的多次getElementBy..组合才能得到的话使用querySelector，方便。
-看实际情况，你决定方便优先还是性能优先，
+看实际情况，你决定方便优先还是性能优先，   
+
+document.getElementsByClassName IE8以上支持  
+document.getElementBy 系列IE5都能支持  
+document.querySelector IE8及以上支持  
+document.addEventListener IE8以上支持  
