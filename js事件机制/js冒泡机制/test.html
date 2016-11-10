@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	#superbox{
+		width: 200px;
+		height: 200px;
+		background-color: #e1e1e1;
+	}
+	#subbox{
+		width: 100px;
+		height: 100px;
+		background-color: #e8e8e8;
+	}
+	#childbox{
+		width: 50px;
+		height: 50px;
+		background-color: #ccc;
+	}	
+</style>
+</head>
+<body>
+	<div id="superbox">
+		<div id="subbox">
+			<div id="childbox"></div>
+		</div>
+		<div class='div'></div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById('subbox').addEventListener('click',function(){
+			console.log(1)
+		},false) //捕获阶段
+		// document.getElementById('subbox').addEventListener('click',function(){
+		// 	console.log(2)
+		// },false) 
+		// document.getElementById('subbox').addEventListener('click',function(){
+		// 	console.log(3)
+		// },false) 
+
+		// document.querySelector('#childbox');
+		// document.getElementsByClassName("div")
+		// document.getElementById('superbox')
+		// document.getElementsByTagName('div')
+		// document.querySelector('.div')
+		document.addEventListener
+	</script>
+</body>
+</html>
