@@ -1,28 +1,28 @@
-// var f = function(){
-// 	this.name = "f_name";
-// 	this.say = function(){
-// 		console.log('say');
-// 	}
-// 	return "213"
-// }
-// new f()
-// var GLOBAL_OBJ = {
-// 	name: '123',
-// 	title: '312'
-// }
-// (function(param){
-// 	var result = Object.assign({},param);
-// 	console.log(result)
-// 	return result
-// })(GLOBAL_OBJ),
-// (function(param){
-// 	console.log(param)
-// })(GLOBAL_OBJ)
-function Person(){
-	this.a = 1;
+//司徒正美 事件代理
+var delegate = function(client,clientMethod){
+	return function(){
+		return clientMethod.apply(client,arguments);
+	}
 }
-// var parents = new Person();
-var parents = {};
-parents.__proto__ = Person.prototype;
-Person.call(parents);
-console.log(parents)
+
+var ClassA = function(){
+	var _color = 'red';
+	return {
+		getColor: function(){
+			console.log('Color',_color);
+		},
+		setColor: function(color){
+			_color = color;
+		}
+	}
+}
+
+var a = new ClassA();
+a.getColor();
+a.setColor('red');
+a.getColor();
+console.log("执行代理！");
+var d = delegate(a,a.setColor);
+d('blue');
+console.log('执行完毕!');
+a.getColor();
