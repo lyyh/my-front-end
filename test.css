@@ -1,0 +1,10 @@
+html,body{
+	height: 100px;
+	margin: 0;
+	padding: 0
+}
+.box{
+	height: 100px;
+	width: 100px;
+	background-color: #ddd;
+}
