@@ -13,26 +13,21 @@
 	html,body{
 		height: 100%;
 	}
+	.wrap{
+		background-color: #ddd;
+		height: 100%;
+	}
 	.box{
 		height: 100%;
-		background-color: #ddd;
-	}
-	.childbox{
-		height: 100%;
-		background-color: #ccc;
+		min-width: 900px;
+		background-color: #333;
+		margin: 0 auto;
 	}
 </style>
 </head>
 <body>
-<div class='box'>
-    <a name="top" id='top'>这里是TOP部分</a>
-	<a name="content" id='content'>这里是CONTENT部分</a>
-	<a name="foot" id='foot'>这里是FOOT部分</a>
-</div>
-<div class="childbox">
-	<a href="index-2.html#top">点击我链接到TOP</a>
-	<a href="index-2.html#content">点击我链接到CONTENT</a>
-	<a href="index-2.html#foot">点击我链接到FOOT</a>
-</div>
+    <div class='wrap'>
+    	<div class="box"></div>
+    </div>
 </body>
 </html>
