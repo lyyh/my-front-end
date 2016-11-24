@@ -10,3 +10,5 @@ documents.cookie = 'cookieName=' + escape('cookievalue')
 ```
 
 是不是看到头晕了呢？cookieName 表示 Cookie 的名称，cookievalue 表示 Cookie 的值，expirationDateObj 表示储存着失效日期的日期对象名，如果不需要指定失效日期，则不需要第二行。不指定失效日期，则浏览器默认是在关闭浏览器（也就是关闭所有窗口）之后过期。
+
+

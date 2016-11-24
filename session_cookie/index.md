@@ -5,3 +5,6 @@ session机制:由服务器端生成，服务器使用一种类似于散列表的
 
 当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为sessionid），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含sessionid，则为此客户端创建一个session并且生成一个与此session相关联的sessionid，sessionid的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个sessionid的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。  
 
+### cookie 
+Cookie 用于弥补 HTTP 协议的无状态性，服务器可以使用 Cookie 中包含的信息来判断 HTTP 传输中的状态。 
+但 Cookie 有自己固有的缺点：它的大小受限，大多数浏览器对 Cookie 大小限制为 4K；Cookie 机制可以在浏览器中被禁用；Cookie 需要在客户端和服务器端来回地传送，繁琐且消耗带宽；存在安全风险，Cookie 是以明文存放，可能被恶意客户修改，当然可以手动加密和解密 Cookie，但这需要额外的编码，并且因为加密和解密需要消耗一定的时间而影响应用程序的性能。   

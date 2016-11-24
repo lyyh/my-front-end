@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	#status{
+		text-align: center;
+
+	}
+</style>
+</head>
+<body>
+<div id='status'>
+	
+</div>
+    <script type="text/javascript">
+ //    	var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+ //    	 var msg;
+ // 	db.transaction(function (tx) {
+ //    	 tx.executeSql('CREATE TABLE IF NOT EXISTS table2 (id unique, log)');
+ //    	tx.executeSql('INSERT INTO table2 (id, log) VALUES (1, "foobar")');
+ //    tx.executeSql('INSERT INTO table2 (id, log) VALUES (2, "logmsg")');
+ //    msg = '<p>Log message created and row inserted.</p>';
+ //    document.querySelector('#status').innerHTML =   msg;
+ // });
+
+//  CREATE TABLE Teachers(Id integer PRIMARY KEY,Name text);
+// sqlite> .tables
+// Teachers
+// sqlite> INSERT INTO Teachers(Name) Values('张三');
+// sqlite> INSERT INTO Teachers(Name) Values('李四');
+// sqlite> INSERT INTO Teachers(Name) Values('王二麻子');
+// sqlite> SELECT * FROM Teachers;
+
+  	var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    	 var msg;
+ 	db.transaction(function (tx) {
+    	 tx.executeSql('CREATE TABLE Student(Id integer PRIMARY KEY,Name text)');
+    	tx.executeSql('INSERT INTO Student(Name) Values("张三")');
+    tx.executeSql('INSERT INTO Student(Name) Values("王二麻子")');
+    // msg = '<p>Log message created and row inserted.</p>';
+    // document.querySelector('#status').innerHTML =   msg;
+ });
+
+    </script>
+</body>
+</html>
