@@ -4,25 +4,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <style type="text/css">
-        html,body{
-            height: 100%;
-        }
-        .g-wrap-1{
-            height: 100%;
-            background-color: #ddd
-        }
-        .g-wrap-2{
-            height: 100%;
-            background-color: #e5e5e5;
-        }
+        html,body{height:100%;margin:0;padding:0;}
+
+.container{min-height:100%;}
+header{background-color: #ffe4c4;}
+main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值要等于或大于footer的height值 */
+footer{height:100px;margin-top:-100px;background-color: #ffc0cb;}/* margin-top（负值的）高度等于footer的height值 */
     </style>
 </head>
 <body>
-<div class="g-wrap-1">
-    <a href=""></a>
-</div>
-<div class="g-wrap-2">
-    
-</div>
+<body>
+    <div class="container">
+        <header>header</header>
+        <main>main content</main>
+    </div>
+        <footer>footer</footer>
+    </body>
+
 </body>
 </html>
