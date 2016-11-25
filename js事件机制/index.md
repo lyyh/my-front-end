@@ -59,7 +59,7 @@ W3c明智的在这场争斗中选择了一个择中的方案。任何发生在w3
 
 ### 两个事件绑定方法
 #### addEventListener
-addEventListener在 IE11、Chrome 、Firefox、Safari等浏览器都得到支持。  IE8以上支持
+addEventListener在Chrome 、Firefox、Safari等浏览器都得到支持。  IE8以上支持
 #### attachEvent
 attachEvent主要用于IE浏览器，并且仅在IE10及以下才支持，IE11已经废了这个方法了（微软还是挺识趣的，慢慢向标准靠拢）。   
 
