@@ -13,7 +13,9 @@
 // console.log(Object.prototype.toString.call([]))
 
 
-// var array = new Array(1,2,3);
-// console.log(Object.prototype.valueOf.call(array));
-var num = 123;
-console.log(Number.prototype.valueOf.call(num))
+var array = new Array(1,2,3);
+console.log(Object.prototype.valueOf.call(array));
+// var num = 123;
+// console.log(Number.prototype.valueOf.call(num))
+
+// console.log(Object.prototype.toString.call(undefined))
