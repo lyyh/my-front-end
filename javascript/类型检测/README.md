@@ -143,4 +143,6 @@ toString.call(new Animal)   // [object Object]
 总之，如果你要判断的是基本数据类型或JavaScript内置对象，使用toString； 如果要判断的时自定义类型，请使用instanceof。
 
 
+参考教程 http://harttle.com/2015/09/18/js-type-checking.html
+
 
