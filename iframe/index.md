@@ -34,7 +34,7 @@ iframe有不好之处：样式/脚本需要额外链入，会增加请求。  �
 iframe框架内的内容尽量简单，一般就是一个图片或者简单的网页；
 你尝试过的有效方式。
 
-#### 什么时候该用iframe呢
+#### 什么时候该用iframe呢``
 因为 iframe 的页面和父页面（parent）是分开的，所以它意味着，这是一个独立的区域，不受 parent 的 CSS 或者全局的 JavaScript 的影响。
 典型的，比如所见即所得的网页编辑器（WYSIWYG Online HTML Editor），因为它们需要 reset 自己的 CSS 到自己的标准，而不被 parent CSS 的 override。  
  iframe 等于新建了一个全新的，不受 parent 影响的页面上下文，所以在一定程度上，类似于沙箱隔离（sandbox）。  
