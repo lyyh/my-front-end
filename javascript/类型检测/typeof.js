@@ -1,0 +1,6 @@
+console.log(typeof null)
+console.log(typeof 'asdf')
+console.log(typeof [1,2,3])
+console.log(typeof 123)
+console.log(typeof undefined)
+console.log(typeof true)
