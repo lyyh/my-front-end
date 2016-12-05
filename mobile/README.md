@@ -29,3 +29,9 @@ css像素
 如此一来，位图像素点个数就是原来的4倍，在retina屏幕下，位图像素点个数就可以跟物理像素点个数形成 1 : 1的比例，图片自然就清晰了(这也解释了之前留下的一个问题，为啥视觉稿的画布大小要×2？)。  
 很明显，在普通屏幕下，200×300(css pixel)img标签，所对应的物理像素个数就是200×300个，而两倍图片的位图像素个数则是200×300*4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法(显示结果就是一张只有原图像素总数四分之一，我们称这个过程叫做downsampling)  
 
+
+### 讲解移动端文章
+(http://www.xn--mnq85jx5hyngnsf.com/md/)[移动端适配方案]
+(http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041)[移动端高清多屏适配方案]
+(http://www.tuicool.com/m/articles/nmm6reE/)[h5手淘解决方案]
+

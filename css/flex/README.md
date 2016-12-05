@@ -29,3 +29,6 @@ align-self属性允许单个项目有与其他项目不一样的对齐方式，�
 3、如果你不希望某个容器在任何时候都不被压缩，那设置flex-shrink:0；  
 4、如果子容器的的flex-basis设置为0(width也可以，不过flex-basis更符合语义)，那么计算剩余空间的时候将不会为子容器预留空间。  
 5、如果子容器的的flex-basis设置为auto(width也可以，不过flex-basis更符合语义)，那么计算剩余空间的时候将会根据子容器内容的多少来预留空间。  
+
+## 参考资料
+http://zhoon.github.io/css3/2014/08/23/flex.html
