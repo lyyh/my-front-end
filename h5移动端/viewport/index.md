@@ -35,3 +35,5 @@ minimum-scale 设定最小缩小比例（0-10.0）
 maximum-scale 设定最大放大比例（0-10.0）  
 target-densitydpi* 设定目标屏幕的dpi（device-dpi）  
 
+参考资料(http://h5course.lofter.com/post/b4bbd_66a932a)
+
