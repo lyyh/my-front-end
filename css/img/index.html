@@ -11,6 +11,7 @@
 <title>Examples</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <style type="text/css">
 	html,body{
 		margin: 0;
@@ -35,4 +36,22 @@
     	<img src="1.png" class="img">
     	<img src="1.png" class="img">-->
 </body>
+<script type="text/javascript">
+	$.ajax({
+		method: 'post',
+		url: 'http://113.251.222.66/major_courses/course/selectCourse.action',
+		dataType: 'jsonp',
+		data: {}
+	})
+	.done(function(data) {
+		console.log("data");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+</script>
 </html>
