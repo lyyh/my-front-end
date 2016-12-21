@@ -3,7 +3,7 @@ jsonp,
 ajax(header('Access-Control-Allow-Orgin:http://....'))  
 window.name+iframe  
 window.location.hash+iframe  
-html5 postMessage+ifrme  
+html5 postMessage+iframe  
 目前就知道这五个，
 jsonp最常见  
 
@@ -14,4 +14,4 @@ jsonp是get形式，承载的信息量有限，所以信息量较大时CORS是�
 配合新的JSAPI(fileapi、xhr2等)一起使用，实现强大的新体验功能。  
 
 #### 协议，端口，域名任一不同即跨域
-跨域通信手段大概有：jsonp，document.domain，window.name，hash传值，possMessage，Access-Control-Allow-Origin
+跨域通信手段大概有：jsonp，document.domain，window.name，hash传值，possMessage，Access-Control-Allow-Origin  

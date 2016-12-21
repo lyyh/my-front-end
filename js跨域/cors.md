@@ -1,6 +1,6 @@
 ## 跨域资源共享（CORS）
-Cross-Origin Resource Sharing (CORS) 是W3c工作草案，它定义了在跨域访问资源时浏览器和服务器之间如何通信。CORS背后的基本思想是使用自定义的HTTP头部允许浏览器和服务器相互了解对方，从而决定请求或响应成功与否，是一套AJAX跨域问题的解决方案。
-
+Cross-Origin Resource Sharing (CORS) 是W3c工作草案，它定义了在跨域访问资源时浏览器和服务器之间如何通信。CORS背后的基本思想是使用自定义的HTTP头部允许浏览器和服务器相互了解对方，从而决定请求或响应成功与否，是一套AJAX跨域问题的解决方案。  
+它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。  
 ### 兼容性
 ie8+,ie8、ie9部分兼容，ie10及以上友好兼容  
 #### CORS与JSONP相比，更为先进、方便和可靠。  
