@@ -1,11 +1,11 @@
 ### 常用的跨域手段
-jsonp,
-ajax(header('Access-Control-Allow-Orgin:http://....'))
-window.name+iframe
-window.location.hash+iframe
-html5 postMessage+ifrme
+jsonp,  
+ajax(header('Access-Control-Allow-Orgin:http://....'))  
+window.name+iframe  
+window.location.hash+iframe  
+html5 postMessage+ifrme  
 目前就知道这五个，
-jsonp最常见
+jsonp最常见  
 
 
 自认为的cors使用场景：

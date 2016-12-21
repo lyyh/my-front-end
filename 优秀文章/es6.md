@@ -1,0 +1,1 @@
+[generator与异步编程](http://www.infoq.com/cn/articles/generator-and-asynchronous-programming)  

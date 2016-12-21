@@ -12,5 +12,5 @@ ie8+,ie8、ie9部分兼容，ie10及以上友好兼容
 Header set Access-Control-Allow-Origin * 
 为了防止XSS攻击我们的服务器， 我们可以限制域，比如，比起JSONP有更好的错误处理。  
 Access-Control-Allow-Origin: http://blog.csdn.net
-很多服务都已经提供了CORS支持，比如 AWS 支持跨域资源分享功能CORS，向S3上传不需要代理。  
+很多服务都已经提供了CORS支持，比如 AWS 支持跨域资源分享功能CORS，向S3上传不需要代理。    
 4.JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。  
