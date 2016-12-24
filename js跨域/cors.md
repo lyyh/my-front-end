@@ -8,7 +8,7 @@ Cross-Origin Resource Sharing (CORS) 是W3c工作草案，它定义了在跨域�
 ### 兼容性
 ie8+,ie8、ie9部分兼容，ie10及以上友好兼容  
 #### CORS与JSONP相比，更为先进、方便和可靠。  
-1、 JSONP只能实现GET请求，而CORS支持所有类型的HTTP请求。  
+1、JSONP只能实现GET请求，而CORS支持所有类型的HTTP请求。  
 2、使用CORS，开发者可以使用普通的XMLHttpRequest发起请求和获得数据
 3、 JSONP主要被老的浏览器支持，它们往往不支持CORS，而绝大多数现代浏览器都已经支持了CORS。
 对一个简单的请求，没有自定义头部，要么使用GET，要么使用POST，它的主体是text/plain,请求用一个名叫Orgin的额外的头部发送。Origin头部包含请求页面的头部（协议，域名，端口），这样服务器可以很容易的决定它是否应该提供响应。

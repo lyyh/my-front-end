@@ -12,72 +12,36 @@
 </head>
 <body>
 	<div class='box'></div>
-    <script type="text/javascript">
+    <input id="fileId1" type="file" accept="image/png,image/gif" name="file" />
+    <!-- <script type="text/javascript">
     	let getJSON = url => {
-    		let handler = () => {
-				if(this.readystate !== 4){
-					console.log(123)
-					return;
-				}
-				if(this.status ===  200)resolve(this.response);
-				else rejected(new Error(this.statusText));
-    		}
-
-    		let promise = new Promise((resolve,rejected)=>{
+    		return new Promise((resolve,rejected)=>{
     			let client = new XMLHttpRequest();
     			client.open('get',url);
     			
     			client.onreadystatechange = function(){
+                    console.log(this.readyState)
     				if(this.readyState !== 4){
 						return;
 					}
-					if(this.status ===  200)resolve(this.response);
-					else rejected(new Error(this.statusText));
+					if(this.status ==  200 && this.readyState == 4){
+                        resolve(this.response);
+                    }else {
+                        rejected(this.error);
+                    }
+                    // if(this.readystate == 4 && this.status == 200){
+                    //     resolve(this.reponse);
+                    // }else{
+                    //     rejected(this.error)
+                    // }
     			}
 
     			client.responseType = 'json';
     			client.setRequestHeader('Accept','application/json');
     			client.send();
     		})
-
     		return promise;
     	}
-
-    	getJSON('http://127.0.0.1:3000/getJSON')
-    	.then(json => {
-    		console.log("Contents is",json);
-    	},error =>{
-    		console.log('error!',error);
-    	})
-// var getJSON = function(url) {
-//   var promise = new Promise(function(resolve, reject){
-//     var client = new XMLHttpRequest();
-//     client.open("GET", url);
-//     client.onreadystatechange = handler;
-//     client.responseType = "json";
-//     // client.setRequestHeader("Accept", "application/json");
-//     client.send();
-
-//     function handler() {
-//       if (this.readyState !== 4) {
-//         return;
-//       }
-//       if (this.status === 200) {
-//         resolve(this.response);
-//       } else {
-//         reject(new Error(this.statusText));
-//       }
-//     };
-//   });
-
-//   return promise;
-// };
-
-// getJSON("http://127.0.0.1:3000/getJSON").then(function(json) {
-//   console.log(json);
-// }, function(error) {
-//   console.error('出错了', error);
-// });
-    </script>
+    </script> -->
 </body>
 </html>
