@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+	<form id="uploadForm" enctype="multipart/form-data">
+    	<input id="file" type="file" name="file"/>
+    	<input type="text" name="text">
+    	<button id="upload" type="button">upload</button>
+	</form>
+    	<!-- <input type="text" name="text">
+    	<input type="file" name="file">
+    	<button id='button'>提交</button> -->
+    <script type="text/javascript">
+    // $("#button").on('click',function(){
+    // 	// var formData = new FormData();
+    // 	// formData.append('name',$('input[name=text]').val());
+    // 	// formData.append('file',document.getElementsByName('file')[0].files[0]);
+    // 	$.ajax({
+    // 		url: 'http://localhost:8080',
+    // 		type: 'post',
+    // 		dataType: 'json',
+    // 		contentType: ''
+    // 		data: formData
+    // 	})
+    // 	.done(function() {
+    // 		console.log("success");
+    // 	})
+    // 	.fail(function() {
+    // 		console.log("error");
+    // 	})
+    // 	.always(function() {
+    // 		console.log("complete");
+    // 	});
+    // })
+    	$("#upload").click(function(){
+    		$.ajax({
+			url: 'http://localhost:8080/upload',
+			type: 'POST',
+			cache: false,
+			data: new FormData($('#uploadForm')[0]),
+			processData: false,
+			contentType: false
+		}).done(function(res) {
+		}).fail(function(res) {});
+    	})
+		
+    </script>
+</body>
+</html>
