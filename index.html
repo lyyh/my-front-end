@@ -4,22 +4,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <style type="text/css">
-        html,body{height:100%;margin:0;padding:0;}
-
-.container{min-height:100%;}
-header{background-color: #ffe4c4;}
-main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值要等于或大于footer的height值 */
-footer{height:100px;margin-top:-100px;background-color: #ffc0cb;}/* margin-top（负值的）高度等于footer的height值 */
+     .mask {       
+            position: absolute; top: 0px;
+            filter: alpha(opacity=60);
+            background-color: #777;     
+            z-index: 1002;
+            left: 0px;     
+            opacity:0.5;
+            -moz-opacity:0.5;     
+        } 
     </style>
 </head>
 <body>
-<body>
-    <div class="container">
-        <header>header</header>
-        <main>main content</main>
-    </div>
-        <footer>footer</footer>
-    </body>
+<div id="mask" class="mask"></div>  
+<script src='http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js'></script>  
+<a href="javascript:;" onclick="showMask()" >点我显示遮罩层</a><br />  
 
+    <script type="text/javascript">     
+    //兼容火狐、IE8   
+    //显示遮罩层    
+    function showMask(){     
+        $("#mask").css("height",$(document).height());     
+        $("#mask").css("width",$(document).width());     
+        $("#mask").show();     
+    }  
+    //隐藏遮罩层  
+    function hideMask(){     
+          
+        $("#mask").hide();     
+    }  
+     
+</script>  
 </body>
 </html>
