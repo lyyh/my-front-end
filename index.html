@@ -1,39 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <style type="text/css">
-     .mask {       
-            position: absolute; top: 0px;
-            filter: alpha(opacity=60);
-            background-color: #777;     
-            z-index: 1002;
-            left: 0px;     
-            opacity:0.5;
-            -moz-opacity:0.5;     
-        } 
-    </style>
 </head>
 <body>
-<div id="mask" class="mask"></div>  
-<script src='http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js'></script>  
-<a href="javascript:;" onclick="showMask()" >点我显示遮罩层</a><br />  
-
-    <script type="text/javascript">     
-    //兼容火狐、IE8   
-    //显示遮罩层    
-    function showMask(){     
-        $("#mask").css("height",$(document).height());     
-        $("#mask").css("width",$(document).width());     
-        $("#mask").show();     
-    }  
-    //隐藏遮罩层  
-    function hideMask(){     
-          
-        $("#mask").hide();     
-    }  
-     
-</script>  
+    <script type="text/javascript">
+	var str = '{"name": "hanzichi", "age": 10}';
+	var obj = eval(str);
+	console.log(obj); // Object {name: "hanzichi", age: 10}
+    </script>
 </body>
 </html>
