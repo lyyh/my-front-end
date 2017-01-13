@@ -3,10 +3,35 @@
 <head>
 </head>
 <body>
-    <script type="text/javascript">
-	var str = '{"name": "hanzichi", "age": 10}';
-	var obj = eval(str);
-	console.log(obj); // Object {name: "hanzichi", age: 10}
-    </script>
+	<div id='wraper'>
+		<input type="text" name="text">
+		<button>点我</button>
+	</div>
+	<script type="text/javascript">
+		
+
+		var wraper = document.getElementById('wraper');
+		var nodeList = wraper.childNodes;
+		var array = Array.prototype.slice.call(nodeList);
+		console.log(array)
+		for(node of nodeList){
+			if(node.nodeType != 3){
+				console.log(node.nodeName);
+			}
+		} 
+
+		Array.prototype.slice = function(start,end){
+			start = start || 0;
+			end = end || this.length;
+
+			var array = []
+			for(var i = start;i < end;i++){
+				array.push(this[i]);
+			}
+
+			return array;
+		}
+		
+	</script>
 </body>
 </html>
