@@ -4,11 +4,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
 </head>
 <body>
-	<div id='wraper'>
-		<input type="text" name="text">
-		<button>点我</button>
-	</div>
-	<button id='submite'>提交</button>	
+	<button id='upload'>提交</button>	
 	
 	<script type="text/javascript">
 	//单例模式
@@ -18,11 +14,12 @@
 		var ajaxObj = {
 			doSubmit: function(){
 				var self = this;
+					//贪婪性提交(无限制的提交，只对最后一个操作进行反馈)
 					if(self.state === 'pending'){
 						self.jqXhr.abort();	
 					}
-					
-					self.state = 'pending';				
+
+					self.state = 'pending';		
 					self.jqXhr = $.ajax({
 						url: 'http://localhost:8080?count='+ ++self.count,
 						type: 'get',
@@ -32,6 +29,7 @@
 						self.state = 'success';
 						console.log(data);
 					})
+					//abort之后会进入fail回调函数
 					.fail(function(error) {
 						console.log(error);
 					})
@@ -40,7 +38,7 @@
 					});
 			},
 			state: '',
-			count: 1,
+			count: 1, //记录提交次数
 			jqXhr: null
 		}
 
@@ -54,10 +52,9 @@
 
 	var ins = getInstance();
 
-	$('#submite').click(function(){
+	$('#upload').click(function(){
 		ins.doSubmit();
 	})
-	
 	</script>
 </body>
 </html>
