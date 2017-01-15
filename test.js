@@ -1,24 +1,42 @@
-function Polygon(sides){
-	if(this instanceof Polygon){
-		this.sides = sides;
-		this.getArea = function(){
-			return 0;
+// var add = function(datas,multiplier) {
+// 	return datas.map(function(item){
+// 		return item * multiplier;
+// 	})
+// 	.reduce(function(x, y) {
+// 		return x + y;
+// 	})
+// }
+// console.log(add([1,2,3,4,5],10))
+
+//柯里化实现
+var currying = function(fn){
+	var _args = [];
+	return function(){
+		if(arguments.length == 0){
+			console.log(_args)
+			return fn.apply(this,_args)
 		}
-	}else{
-		return new Polygon(3);
+
+		Array.prototype.push.apply(_args,Array.prototype.slice.call(arguments));
+		return arguments.callee;
 	}
 }
 
-function Rectangle(width,length){
-	Polygon.call(this,2);
-	this.width = width;
-	this.length = length;
-	this.getArea = function(){
-		return width * length;
-	}
+var multiplier = function(){
+	var list = Array.prototype.slice.call(arguments);
+
+	return list.map(function(item){
+		return item * 10;
+	}).reduce(function(x,y){
+		return x + y;
+	})
 }
 
-Rectangle.prototype = new Polygon();
-var rec = new Rectangle(10,20);
-console.log(rec instanceof Polygon);
-console.log(rec.getArea()) 
+
+var sum = currying(multiplier);
+sum(1,2,3)(4);
+sum(5);
+console.log(sum());
+// adder(1,2,3)(4);
+// adder(5);
+// adder()
