@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id='wraper'>
 		<input type="text" name="text">
 		<button>点我</button>
 	</div>
+	<button id='submite'>提交</button>	
+	
 	<script type="text/javascript">
-		
+	//单例模式
+	var getInstance = (function (){
+		var instance;
 
-		var wraper = document.getElementById('wraper');
-		var nodeList = wraper.childNodes;
-		var array = Array.prototype.slice.call(nodeList);
-		console.log(array)
-		for(node of nodeList){
-			if(node.nodeType != 3){
-				console.log(node.nodeName);
-			}
-		} 
-
-		Array.prototype.slice = function(start,end){
-			start = start || 0;
-			end = end || this.length;
-
-			var array = []
-			for(var i = start;i < end;i++){
-				array.push(this[i]);
-			}
-
-			return array;
+		var ajaxObj = {
+			doSubmit: function(){
+				var self = this;
+					if(self.state === 'pending'){
+						self.jqXhr.abort();	
+					}
+					
+					self.state = 'pending';				
+					self.jqXhr = $.ajax({
+						url: 'http://localhost:8080?count='+ ++self.count,
+						type: 'get',
+						dataType: 'json'
+					})
+					.done(function(data) {
+						self.state = 'success';
+						console.log(data);
+					})
+					.fail(function(error) {
+						console.log(error);
+					})
+					.always(function() {
+						console.log("complete");
+					});
+			},
+			state: '',
+			count: 1,
+			jqXhr: null
 		}
-		
+
+		return function(){
+			if(!instance){
+				instance = ajaxObj;
+			}
+			return instance;
+		}
+	}());
+
+	var ins = getInstance();
+
+	$('#submite').click(function(){
+		ins.doSubmit();
+	})
+	
 	</script>
 </body>
 </html>
