@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <script src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+    <style type="text/css">
+    	#myDiv{
+            height: 100px;
+    		background-color: red;
+    	}
+    </style>
 </head>
-
+    
 <body>
-    <input type="text" name="text" id='textInput'>
-    <button id='upload'>提交</button>
-    <ul>
-    	<li><a href=""></a></li>
-    	<li><a href=""></a></li>
-    	<li><a href=""></a></li>
-    </ul>
+    <div id='myDiv'></div>
+    <button id='perform'>点我</button>
+    <input type="text" name="" id='textInput'>
     <script type="text/javascript">
-    var setTimeoutOriginal = setTimeout;
-    setTimeout = function(fn, timeout) {
-        if (timeout) {
-            setTimeoutOriginal(fn, timeout);
-        } else {
-            fn();
-            return setTimeoutOriginal(Function.prototype, 0);
-        }
-    }
+        // //节流
+        // function throttle(method,context){
+        //     clearTimeout(method.tId);
+        //     method.tId = setTimeout(function(){
+        //         method.call(context); //传入执行环境
+        //     },100)
+        // }
 
-    for (var i = 0, sum = 0; i < 10; i++) {
-        console.log(i)
-        if (i == 5) {
-            setTimeout(function() {
-                console.log(123)
-            }, 0)
+        // function resizeDiv(){
+        //     var div = document.getElementById('myDiv');
+        //     div.style.height = div.offsetWidth + 'px';
+        // }
+
+        // window.onresize = function(){
+        //     throttle(resizeDiv);
+        // }  
+        function throttle(method,context){
+            clearTimeout(method.tId);
+            method.tId = setTimeout(function(){
+                method.call(context);
+            },100)
         }
-        sum += i;
-    }
     </script>
 </body>
 
