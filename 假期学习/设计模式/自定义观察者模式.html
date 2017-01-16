@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <script type="text/javascript">
+    function EventUtil() {
+        this.handlers = {};
+    }
+
+    EventUtil.prototype = {
+        constructor: EventUtil,
+        //注册事件
+        addHandler: function(type, handler) {
+            if (typeof this.handlers[type] == 'undefined') {
+                this.handlers[type] = []
+            }
+            this.handlers[type].push(handler);
+        },
+        //触发事件
+        fire: function(event) {
+            if (!event.target) {
+                event.target = this;
+            }
+            var handlers = this.handlers[event.type];
+            console.log(handlers)
+            if (handlers instanceof Array) {
+                handlers.forEach(function(handler) {
+                    handler(event);
+                })
+            }
+        },
+        //注销事件
+        removeHandler: function(type, handler) {
+            var handlers = this.handlers[type];
+            if (handlers instanceof Array) {
+                for (var i = 0; i < handlers.length; i++) {
+                    if (handlers[i] == handler) {
+                        break;
+                    }
+                }
+                handler.splice(i, 1);
+            }
+        }
+    }
+
+    var handleMessage = function(event){
+    	alert(event.target.name + ' say:' + event.message);
+    }
+
+    var Person = function(name,age){
+    	this.name = name;
+    	this.age = age
+    }
+
+    Person.prototype = new EventUtil();
+    Person.prototype.say = function(message){
+    	this.fire({type:'message',message:message});
+    }
+
+    var person = new Person('liu',20);
+    person.addHandler('message',handleMessage);
+    person.say('Hi here');
+    </script>
+</body>
+
+</html>
