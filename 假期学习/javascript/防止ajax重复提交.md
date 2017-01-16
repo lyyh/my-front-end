@@ -31,3 +31,6 @@ module.submit = throttle(150, function() {
 
 ## 懒惰型提交
 任意两次提交的间隔时间，必须大于一个指定时间，才会促成有效提交；即不给休息不干活。 
+
+
+[https://www.zhihu.com/question/19805411](防止ajax重复性提交)

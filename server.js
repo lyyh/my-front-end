@@ -8,7 +8,7 @@ http.createServer(function(req,res){
 	setTimeout(function(){
 		res.write('{"name":"'+count+'"}');
 		res.end();	
-	},1000)
+	},3000)
 }).listen(8080,function(){
 	console.log('listening port is 8080')
 });

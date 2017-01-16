@@ -1,60 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
 </head>
+
 <body>
-	<button id='upload'>提交</button>	
-	
-	<script type="text/javascript">
-	//单例模式
-	var getInstance = (function (){
-		var instance;
+    <input type="text" name="text" id='textInput'>
+    <button id='upload'>提交</button>
+    <ul>
+    	<li><a href=""></a></li>
+    	<li><a href=""></a></li>
+    	<li><a href=""></a></li>
+    </ul>
+    <script type="text/javascript">
+    var setTimeoutOriginal = setTimeout;
+    setTimeout = function(fn, timeout) {
+        if (timeout) {
+            setTimeoutOriginal(fn, timeout);
+        } else {
+            fn();
+            return setTimeoutOriginal(Function.prototype, 0);
+        }
+    }
 
-		var ajaxObj = {
-			doSubmit: function(){
-				var self = this;
-					//贪婪性提交(无限制的提交，只对最后一个操作进行反馈)
-					if(self.state === 'pending'){
-						self.jqXhr.abort();	
-					}
-
-					self.state = 'pending';		
-					self.jqXhr = $.ajax({
-						url: 'http://localhost:8080?count='+ ++self.count,
-						type: 'get',
-						dataType: 'json'
-					})
-					.done(function(data) {
-						self.state = 'success';
-						console.log(data);
-					})
-					//abort之后会进入fail回调函数
-					.fail(function(error) {
-						console.log(error);
-					})
-					.always(function() {
-						console.log("complete");
-					});
-			},
-			state: '',
-			count: 1, //记录提交次数
-			jqXhr: null
-		}
-
-		return function(){
-			if(!instance){
-				instance = ajaxObj;
-			}
-			return instance;
-		}
-	}());
-
-	var ins = getInstance();
-
-	$('#upload').click(function(){
-		ins.doSubmit();
-	})
-	</script>
+    for (var i = 0, sum = 0; i < 10; i++) {
+        console.log(i)
+        if (i == 5) {
+            setTimeout(function() {
+                console.log(123)
+            }, 0)
+        }
+        sum += i;
+    }
+    </script>
 </body>
+
 </html>
