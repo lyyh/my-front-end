@@ -4,54 +4,22 @@
 </head>
     
 <body>
-    <input type="url" name="">
-    <div id='myDiv'></div>
-    <button id='perform'>点我</button>
+    <table border='1' id='table'> 
+        <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+        <tr>
+             <td>b</td>
+             <td>c</td>
+        </tr>
+    </table>
     <script type="text/javascript">
-        function EventTarget(){
-            this.handlers = {};
-        }
-        EventTarget.prototype = {
-            constructor: EventTarget,
-            addHandler: function(type,handler){
-                if(typeof this.handlers[type] == 'undefined'){
-                    this.handlers[type] = []
-                }
-                this.handlers[type].push(handler);                
-            },
-            fire: function(event){
-                if(!event.target){
-                    event.target = this;
-                }
-                if(this.handlers[event.type] instanceof Array){
-                    var handlers = this.handlers[event.type];
-                    handlers.forEach(function(handler){
-                        console.log(event)
-                        handler(event);
-                    })
-                }
-            },
-            removeHandler: function(type,handler){
-                if(this.handlers[type] instanceof Array){
-                    var handlers = this.handlers[event.type];
-                    for(var i = 0;i < handlers.length;i++){
-                        if(handlers[i] == handler){
-                            break;
-                        }
-                    }
-                    handlers.splice(i,1);
-                }
-            }
-        }
-
-        function handleMessage(event){
-            console.log(event)
-            alert('message received:'+event.message);
-        }
-
-        var target = new EventTarget();
-        target.addHandler('message',handleMessage);
-        target.fire({type:'message',message: 'hello world'});
+        document.getElementsByTagName('tr')[0].addEventListener('click',function(event){
+            console.log(this)
+            // console.log(event.target)
+        })
     </script>
 </body>
 

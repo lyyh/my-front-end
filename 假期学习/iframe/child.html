@@ -17,11 +17,14 @@
     <input type="text" name="text" value="123" id='text'>
     <button>点我</button>
     <script type="text/javascript">
-    	var childGlobalVar = 1;
-    	console.log(111)
-    	for(var i = 0;i < 10;i++){
-    		console.log(i)
+    	if(window.parent != window){
+    		window.parent.location='http://baidu.com';
     	}
+    	// var childGlobalVar = 1;
+    	// console.log(111)
+    	// for(var i = 0;i < 10;i++){
+    	// 	console.log(i)
+    	// }
     </script>
 </body>
 </html>

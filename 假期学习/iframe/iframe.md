@@ -100,4 +100,10 @@ setTimeout(setIframeSrc, 5);
 当广告加载完成，重置iframe大小来适应广告
 这种方法也没有浏览器的兼容性问题。  
 
+## 防止页面被其他页面嵌套
+```
+if(window.parent!=window) window.parent.location="http://hqlong.com";//or if(window.top!=window) window.top.location="http://hqlong.com";
+```
 
+## iframe加载状态
+在Firefox/Opera/Safari中，可以直接使用iframe onload事件；而在IE中，可以通过定时器测定子页面的document.readyState，或者使用iframe onreadystatechange事件计算该事件的响应。
