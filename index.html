@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 </head>
-    
 <body>
-    <table border='1' id='table'> 
+    <table border='1' id='table'>
         <tr>
             <td rowspan="2">a</td>
             <td>b</td>
             <td>c</td>
         </tr>
         <tr>
-             <td>b</td>
-             <td>c</td>
+            <td>b</td>
+            <td>c</td>
         </tr>
     </table>
     <script type="text/javascript">
-        document.getElementsByTagName('tr')[0].addEventListener('click',function(event){
-            console.log(this)
-            // console.log(event.target)
-        })
+    var a = '123123';
+    var b = 'adsfadsf';
+    var c = 'adsfadsfadsf';
+    var array = [a, b, c];
+
+    console.time();
+    var str = array.join('');
+    console.log(str)
+    console.timeEnd()
+
+
+    var str1 = '';
+    console.time();
+    str1 = a + b + c;
+    console.log(str1)
+    console.timeEnd()
     </script>
 </body>
 
