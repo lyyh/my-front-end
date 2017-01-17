@@ -107,3 +107,5 @@ if(window.parent!=window) window.parent.location="http://hqlong.com";//or if(win
 
 ## iframe加载状态
 在Firefox/Opera/Safari中，可以直接使用iframe onload事件；而在IE中，可以通过定时器测定子页面的document.readyState，或者使用iframe onreadystatechange事件计算该事件的响应。
+
+(参考文档)[http://www.cnblogs.com/beiyuu/archive/2011/07/18/iframe-tech-performance.html]
