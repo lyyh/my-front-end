@@ -3,36 +3,26 @@
 
 <head>
 </head>
-<body>
-    <table border='1' id='table'>
-        <tr>
-            <td rowspan="2">a</td>
-            <td>b</td>
-            <td>c</td>
-        </tr>
-        <tr>
-            <td>b</td>
-            <td>c</td>
-        </tr>
-    </table>
+<body> 
+    <button onclick="goForward()">前进</button>
+    <button onclick='goBack()'>后退</button>
     <script type="text/javascript">
-    var a = '123123';
-    var b = 'adsfadsf';
-    var c = 'adsfadsfadsf';
-    var array = [a, b, c];
+        function goForward(){
+            var url = window.location.href+ '#12321';
+            history.pushState({page:1},null,url)
+        }
+        window.onpopstate = function(event){
+            console.log(event.state)
+        }
+        function goBack(){
+            window.history.back();
+        }
 
-    console.time();
-    var str = array.join('');
-    console.log(str)
-    console.timeEnd()
-
-
-    var str1 = '';
-    console.time();
-    str1 = a + b + c;
-    console.log(str1)
-    console.timeEnd()
+        window.hashchange = function(){
+            console.log(213123)
+        }
     </script>
+       
 </body>
 
 </html>
