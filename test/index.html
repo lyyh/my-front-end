@@ -17,21 +17,13 @@
 </head>
 
 <body>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src=''></script>
     <script type="text/javascript">
-    window.onbeforeunload = function() {
-        var n = window.event.screenX - window.screenLeft;
-        var b = n > document.documentElement.scrollWidth - 20;
-        if (b && window.event.clientY < 0 || window.event.altKey) {
-            alert("这是一个关闭操作而非刷新");
-            window.event.returnValue = ""; //此处放你想要操作的代码 
-        } else {
-            alert("这是一个刷新操作而非关闭");
-        }
+    function parseHTML(html) {
+        return $.parseHTML(html, document, true)
     }
-
-    window.onload = function() {
-        console.log(window.screenLeft)
-    }
+    console.log($(parseHTML('<head>asdfasdfasdfasdfasdfasdfdsfadsfasdfasdfas</head>'.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0])))
     </script>
 </body>
 
