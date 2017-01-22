@@ -20,10 +20,8 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src=''></script>
     <script type="text/javascript">
-    function parseHTML(html) {
-        return $.parseHTML(html, document, true)
-    }
-    console.log($(parseHTML('<head>asdfasdfasdfasdfasdfasdfdsfadsfasdfasdfas</head>'.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0])))
+    console.log(Object.is(-0,+0));
+    console.log(Object.is(NaN,NaN));
     </script>
 </body>
 

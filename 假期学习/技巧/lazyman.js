@@ -11,10 +11,10 @@ var _LazyMan = function(name) {
         }
     })(name);
     _this.tasks.push(fn);
-    // setTimeout(function() {
-    //     _this.next();
-    // }, 0)
-    _this.next();
+    //延迟执行
+    setTimeout(function() {
+        _this.next();
+    }, 0)
 }
 
 _LazyMan.prototype.next = function() {

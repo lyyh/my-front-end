@@ -30,9 +30,9 @@ jsonp允许用户传递一个callback参数给服务器，然后服务端返回�
 23         var a="firstName Brett";
 24         alert(a);
 ```
-
+将自动调用回调函数。
 ### jsonp jquery ajax
-jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型设置为 JSONP。使用 JSONP 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。数据类型设置为 "jsonp" 时，jQuery 将自动调用回调函数。(这个我不是很懂)
+jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型设置为 JSONP。使用 JSONP 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。数据类型设置为 "jsonp" 时，jQuery (这个我不是很懂)
 
 
 
