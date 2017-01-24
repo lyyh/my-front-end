@@ -39,3 +39,4 @@ const singleChain = obj => {
 }
 const obj1 = new ClassA();
 singleChain(obj1)('method1', 1)()
+
