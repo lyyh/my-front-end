@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<head>    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<head>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
@@ -16,11 +17,32 @@
 </head>
 
 <body>
+    <a id='aLabel' href="">xss</a>
+    <div id='box'></div>
+    <div id='box1'></div>
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src=''></script>
     <script type="text/javascript">
-    console.log(Object.is(-0,+0));
-    console.log(Object.is(NaN,NaN));
+    $('#aLabel').click(function() {
+        $(this).attr('href', encodeURIComponent('http://www.baidu.com'))
+    });
+
+    $('#box').html('<p>123213</p>')
+    $('#box1').text('<p>123213</p>')
+
+    //html文档编码
+    function htmlencode(s) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(s));
+        return div.innerHTML;
+    }
+
+    $("#box").html(htmlencode('<p>123213</p>'));
+    function htmldecode(s) {
+        var div = document.createElement('div');
+        div.innerHTML = s;
+        return div.innerText || div.textContent;
+    }
+
     </script>
 </body>
 
