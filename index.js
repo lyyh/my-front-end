@@ -1,13 +1,14 @@
-var str = 'abccbbca';
+let generator = function* () {
+  yield 1;
+  yield* [2,3,4];
+  yield 5;
+};
 
-function getMaxLength(str) {
-    var first = 0,
-        array = str.split(''),
-        len = str.length;
-    while (len - 1 - first > 0) {
-        for (var last = len - 1; last >= first; last--) {
-        	var subStr = str.subStr(first,last);
-        }
-        first++;
-    }
-}
+var iterator = generator();
+
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 1, done: false }
+console.log(iterator.next()) // { value: 1, done: false }
