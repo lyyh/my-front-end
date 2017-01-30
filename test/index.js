@@ -1,7 +1,6 @@
-/**
- * 
- * @authors liuyanhao (374659635@qq.com)
- * @date    2017-01-17 11:40:32
- * @version $Id$
- */
-
+function foo(){
+	for(var value of arguments){
+		console.log(value)
+	}
+}
+foo(1,2,3)
