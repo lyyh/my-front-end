@@ -25,7 +25,7 @@ obj.method1(1).method2(2).method3(3);
 
 //对象传入后每次调用返回函数自身
 const singleChain = obj => {
-    const chain = (...options) 977=> {
+    const chain = (...options)=> {
         if (options.length == 0) {
             return chain.obj;
         }

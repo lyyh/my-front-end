@@ -13,3 +13,5 @@ Array.from()
 Map(), Set(), WeakMap(), WeakSet()（比如new Map([['a',1],['b',2]])）
 Promise.all()
 Promise.race()
+### 使用范围
+for...of循环可以使用的范围包括数组、Set 和 Map结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、后文的 Generator 对象，以及字符串。
