@@ -1,9 +1,15 @@
-function* entries(obj) {
-    for (let key of Object.keys(obj)) {
-        yield [key, obj[key]];
-    }
-}
-var obj = { a: 1, b: 2, c: 3 };
-for (let [key, value] of entries(obj)) {
-    console.log(key + "->" + value)
-}
+// function* f() {
+//   console.log('执行了！')
+// }
+
+// var generator = f();
+// setTimeout(function () {
+//   generator.next()
+// }, 2000);
+var n = 100;
+console.time();
+console.log(`${n}`)
+console.timeEnd()
+console.time();
+console.log(''+n)
+console.timeEnd()
