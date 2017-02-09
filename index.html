@@ -7,27 +7,18 @@
 </head>
 
 <body>
-    <div id="node"></div>
+    <button id='btn'>点我</button>
     <script>
-    var x = [];
-
-    function createSomeNodes() {
-        var div,
-            i = 100,
-            frag = document.createDocumentFragment();
-        for (; i > 0; i--) {
-            div = document.createElement("div");
-            div.appendChild(document.createTextNode(i + " - " + new Date().toTimeString()));
-            frag.appendChild(div);
+    var obj = {a:1};
+    function foo(){
+        try{
+            return obj;
+        }finally{
+            obj = null;
         }
-        document.getElementById("nodes").appendChild(frag);
     }
-
-    function grow() {
-        x.push(new Array(1000000).join('x'));
-        createSomeNodes();
-        setTimeout(grow, 1000);
-    }
+    console.log(foo())
+    console.log(obj)
     </script>
 </body>
 
