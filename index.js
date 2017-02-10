@@ -1,14 +1,11 @@
-let generator = function* () {
-  yield 1;
-  yield* [2,3,4];
-  yield 5;
-};
-
-var iterator = generator();
-
-console.log(iterator.next()) // { value: 1, done: false }
-console.log(iterator.next()) // { value: 1, done: false }
-console.log(iterator.next()) // { value: 1, done: false }
-console.log(iterator.next()) // { value: 1, done: false }
-console.log(iterator.next()) // { value: 1, done: false }
-console.log(iterator.next()) // { value: 1, done: false }
+let gen = function*() {
+    this.a = 1;
+    yield this.b = 2;
+    yield this.c = 3;
+}
+let F = function(){
+	return gen.call(gen.prototype);
+}
+let f = new F();
+console.log(f.next())
+console.log(f.next())
