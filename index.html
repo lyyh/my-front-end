@@ -4,27 +4,49 @@
 <head>
     <title>Rose</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <button id='btn'>点我</button>
-    <script>
-    var theThing = null;
-    var replaceThing = function() {
-        var originalThing = theThing;
-        var unused = function() {
-            if (originalThing)
-                console.log("hi");
-        };
-        theThing = {
-            longStr: new Array(1000000).join('*'),
-            someMethod: function() {
-                console.log(someMessage);
+    <!--  <input type="file" name="file" onchange="showPreview(this)">
+    <img id = 'portrait' src="" width="70" height="75">
+    <div id = 'text' width='300px;' height='1000px'></div>
+    <script type="text/javascript">
+        function showPreview(source){
+            var file = source.files[0];
+            if(window.FileReader){
+                var fr = new FileReader();
+                fr.onloadend = function(e){
+                    console.log(e);
+                    document.getElementById('text').innerHTML = e.target.result;
+                }
+                fr.readAsText(file);
             }
-        };
-    };
-    setInterval(replaceThing, 1000);
-    </script>
+        }
+    </script> -->
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input id="file" type="file" name="file" />
+        <input type="text"  id='text'>
+        <button id="upload" type="button">upload</button>
+        <script type="text/javascript">
+        document.getElementById('upload').addEventListener('click', function() {
+            // $.ajax({
+            //     url: 'http://localhost:8080/upload',
+            //     type: 'POST',
+            //     cache: false,
+            //     data: new FormData($('#uploadForm')[0]),
+            //     processData: false,
+            //     contentType: false
+            // }).done(function(res) {}).fail(function(res) {});
+            console.log($('#text')[0])
+            var formData = new FormData($('#uploadForm')[0]),
+                xhr = new XMLHttpRequest();
+
+            xhr.open("POST", 'http://localhost:8080/upload');
+            xhr.send(formData);
+        })
+        </script>
+    </form>
 </body>
 
 </html>
