@@ -1,17 +1,23 @@
-// let gen = function*() {
-//     this.a = 1;
-//     yield this.b = 2;
-//     yield this.c = 3;
-// }
-// let F = function(){
-// 	return gen.call(gen.prototype);
-// }
-// let f = new F();
-// console.log(f.next())
-// console.log(f.next())
-function B() {
-    return {
-        b: 1
-    }
+let work1 = function(){
+	console.log(123)
 }
-var b = new B();
+
+let work2 = function(){
+	console.log(213)
+}
+
+let work3  = function(){
+	console.log(4213)
+}
+
+let tasks = [work1,work2,work3];
+function* doTask(){
+	for(let task of tasks){
+		yield task();
+	}
+}
+
+let gen = doTask();
+gen.next();
+gen.next();
+gen.next();
