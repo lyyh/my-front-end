@@ -8,45 +8,15 @@
 </head>
 
 <body>
-    <!--  <input type="file" name="file" onchange="showPreview(this)">
-    <img id = 'portrait' src="" width="70" height="75">
-    <div id = 'text' width='300px;' height='1000px'></div>
+    <input type="text" name="" id='ipt' onchange="change(this.value)">
     <script type="text/javascript">
-        function showPreview(source){
-            var file = source.files[0];
-            if(window.FileReader){
-                var fr = new FileReader();
-                fr.onloadend = function(e){
-                    console.log(e);
-                    document.getElementById('text').innerHTML = e.target.result;
-                }
-                fr.readAsText(file);
-            }
-        }
-    </script> -->
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input id="file" type="file" name="file" />
-        <input type="text"  id='text'>
-        <button id="upload" type="button">upload</button>
-        <script type="text/javascript">
-        document.getElementById('upload').addEventListener('click', function() {
-            // $.ajax({
-            //     url: 'http://localhost:8080/upload',
-            //     type: 'POST',
-            //     cache: false,
-            //     data: new FormData($('#uploadForm')[0]),
-            //     processData: false,
-            //     contentType: false
-            // }).done(function(res) {}).fail(function(res) {});
-            console.log($('#text')[0])
-            var formData = new FormData($('#uploadForm')[0]),
-                xhr = new XMLHttpRequest();
-
-            xhr.open("POST", 'http://localhost:8080/upload');
-            xhr.send(formData);
-        })
-        </script>
-    </form>
+    function change(data){
+        window.localStorage.name = data
+    }
+    window.addEventListener("storage", function(e){
+        console.log(e)
+    }, false);
+    </script>
 </body>
 
 </html>
