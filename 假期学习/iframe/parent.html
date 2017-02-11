@@ -16,13 +16,9 @@
 <body>
     <iframe src="child.html" id='childIframe'></iframe>
     <script type="text/javascript">
-    console.log(213)
-   //  	window.onload = function(){
-			// console.log(document.getElementById('childIframe').contentWindow.document)
-   //  		var number = document.getElementById('childIframe').contentWindow.document.getElementById('text').value;
-   //  		console.log(value)
-   //  	}
-    	
+      document.getElementById('childIframe').onload = function(){
+        console.log(document.getElementById('childIframe').contentWindow.document);
+      }    	
     </script>
 </body>
 </html>

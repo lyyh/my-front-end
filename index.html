@@ -8,14 +8,13 @@
 </head>
 
 <body>
-    <input type="text" name="" id='ipt' onchange="change(this.value)">
+    <iframe src="http://www.baidu.com" name='iframe'></iframe>
     <script type="text/javascript">
-    function change(data){
-        window.localStorage.name = data
+    window.frames['iframe'].onload = function(){
+        console.log(123);
     }
-    window.addEventListener("storage", function(e){
-        console.log(e)
-    }, false);
+    // var doc = document.getElementById('iframe').contentWindow.document;
+    // console.log(doc)
     </script>
 </body>
 
