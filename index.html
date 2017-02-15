@@ -7,30 +7,25 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <style type="text/css">
     .box {
-        /*width: 100px;*/
-        /*height: 100px;*/
+        float: left;
+        width: 100px;
+        height: 100px;
         background-color: #ddd;
-        /*margin-bottom: 100px;*/
-        /*position: absolute;*/
     }
     
     .box1 {
         height: 100px;
         width: 100px;
         background-color: red;
-        /*float: left;*/
-        /*position: absolute;*/
-        /*display: inline-block;*/
-        margin-top: 100px;
+        overflow: hidden;
     }
     </style>
 </head>
 
 <body>
-    <div class="box">
-        <div>213123</div>
-        <div class="box1"></div>
+    <div class="box1">
     </div>
+    <div class="box"></div>
 </body>
 
 </html>
