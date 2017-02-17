@@ -1,26 +1,11 @@
-let async = require('async');
-let EventProxy = require('eventproxy');
-let ep = new EventProxy();
-let amounts = [];
-for (let i = 1; i <= 10; i++) {
-    amounts.push(i);
-}
+var fs = require("fs");
 
-let count = 0;
-async.mapLimit(amounts, 5, function(amount, callback) {
-    (function(cb) {
-        count++;
-        console.log('当前并发数 ' + count);
-        setTimeout(function() {
-            count--;
-            console.log(amount)
-            ep.emit('a', amount);
-            cb(null, amount)
-        }, 1000);
-    })(callback)
-}, function(err, result) {})
-
-
-ep.after('a', 10, function(result) {
-    console.log(result)
-})
+// 异步打开文件
+console.log("准备打开文件！");
+fs.open('index.html', 'r+', function(err, fd) {
+   if (err) {
+       return console.error(err);
+   }
+   console.log(fd)
+  console.log("文件打开成功！");     
+});
