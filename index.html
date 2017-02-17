@@ -16,13 +16,37 @@
     .box1 {
         background-color: red;
     }
+    
+    .link-a:link {
+        color: red
+    }
+    
+    .link-a:visited {
+        color: black;
+    }
+    
+    .link-a:hover {
+        color: green;
+    }
+    
+    .link-a:active {
+        color: gray;
+    }
     </style>
 </head>
 
 <body>
-    <div class="box1">
-        <div class="box"></div>
-    </div>
+    <a href="javascript:alert(1)" class='link-a'>我是链接</a>
+    <script type="text/javascript">
+    window.onload = function() {
+        console.log('window.onload加载完毕')
+    }
+
+    function tttt() {
+        console.log('domcontentload加载ok')
+    }
+    document.addEventListener('DOMContentLoaded', tttt, false);
+    </script>
 </body>
 
 </html>
