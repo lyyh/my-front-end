@@ -1,11 +1,20 @@
-var fs = require("fs");
+// var a = new Array(1,2,3,4);
+// var bin = a.slice(1);
+// console.log(a)
+// 
+var fs = require('fs');
+var path = require('path');
 
-// 异步打开文件
-console.log("准备打开文件！");
-fs.open('index.html', 'r+', function(err, fd) {
-   if (err) {
-       return console.error(err);
-   }
-   console.log(fd)
-  console.log("文件打开成功！");     
-});
+function travel(dir,callback){
+	fs.readdirSync(dir).forEach(function(file){
+		var pathname = path.join(dir,file);
+		if(fs.statSync(pathname).isDirectory()){
+			travel(pathname,callback);
+		}else{
+			callback(file);
+		}
+	})
+}
+travel('js事件机制',function(filename){
+	console.log(filename)
+})
