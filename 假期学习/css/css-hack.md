@@ -10,4 +10,26 @@ lte：less than or equal ，选择条件版本以下版本，包含条件版本�
 条件注释法（适用于IE10以下，IE10以后不再支持条件注释）  
 
 ### 类内属性前缀法
+*color：IE5.5、6、7
++color : IE5.5、6、7
+＃color : IE5.5、6、7
+-color：IE5.5、6
+＿color: IE5.5、6
+这几个当中，我喜欢用＊与 ＿
+color\0 : IE8、9、10、11（12以上没测）（此处有些地方说欧朋也识别，可是我测试啦，不管用，不知道啊）
+color\9 : IE6、7、8、9、10（11不支持）
+color\9\0:IE8、9、10（其他不支持）
+\9\0取了共集
+color:red!important;提高该设置的优先级
 
+### 选择器前缀法
+@media screen\9{……}（只对IE6、7生效）
+@media \0screen{……}（只对IE8生效）
+@media \0screen\,screen\9{……}（对IE6,7,8生效）
+@media screen\0{……}（只对IE8、9、10生效）
+@media screen and (min-width:0\0){……}（只对IE9，10有效）
+@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){……}（对IE10,11有效，以上没测）
+
+
+### 参考资料
+[csshack](http://blog.csdn.net/freshlover/article/details/12132801)
