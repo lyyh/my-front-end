@@ -6,3 +6,4 @@ function *foo(){
 for(let i of foo){
     console.log(i)
 }
+
