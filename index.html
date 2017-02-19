@@ -5,59 +5,8 @@
     <title>Rose</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <style type="text/css">
-        #link-a{
-        font-size: 100px;
-    }
-    </style>
 </head>
-
 <body>
-    <a href="javascript:alert(1)" id='link-a'>我是链接</a>
-
-    <script type="text/javascript">
-    window.onload = function() {
-        console.log('window.onload加载完毕')
-    }
-
-    function tttt() {
-        console.log('domcontentload加载ok')
-    }
-    document.addEventListener('DOMContentLoaded', tttt, false);
-
-    var style = window.getComputedStyle(document.getElementById('link-a'));
-    console.log(style.fontSize)
-
-    </script>
-    <style type="text/css">
-    .box {
-        float: left;
-        width: 100px;
-        height: 100px;
-        background-color: #ddd;
-    }
     
-    .box1 {
-        background-color: red;
-    }
-    
-    #link-a:link {
-        color: red
-    }
-    
-    #link-a:visited {
-        color: black;
-    }
-    
-    #link-a:hover {
-        color: green;
-    }
-    
-    #link-a:active {
-        color: gray;
-    }
-    
-    </style>
 </body>
-
 </html>
