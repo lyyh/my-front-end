@@ -1,0 +1,48 @@
+## webpack
+webpack是近期最火的一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，基于commonjs规范，使用require加载模块。并且与React和Redux完美结合，主要用于单页面开发。
+
+### 为什么要用webpack
+1.与react一类模块化开发的框架搭配着用比较好。  
+2.属于配置型的构建工具，比较用容易上手，160行代码可大致实现gulp400行才能实现的功能。  
+3.webpack使用内存来对构建内容进行缓存，构建过程中会比较快。 
+4.将资源分割成更小的易于管理的模块，达到复用的目的。   
+
+### 核心原理
+1.一切皆模块  
+正如js文件可以是一个“模块（module）”一样，其他的（如css、image或html）文件也可视作模 块。因此，你可以require('myJSfile.js')亦可以require('myCSSfile.css')。这意味着我们可以将事物（业务）分割成更小的易于管理的片段，从而达到重复利用等的目的。    
+2.按需加载  
+传统的模块打包工具（module bundlers）最终将所有的模块编译生成一个庞大的bundle.js文件。但是在真实的app里边，“bundle.js”文件可能有10M到15M之大可能会导致应用一直处于加载中状态。因此Webpack使用许多特性来分割代码然后生成多个“bundle”文件，而且异步加载部分代码以实现按需加载。  
+
+### 特色
+webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色
+
+### 特色
+1.分块打包。可以提取公共模块，增加复用性。  
+2.将css打包在js里动态去添加到dom文档中去，将外部样式转化成内嵌样式，减少请求次数。同时也可使用
+
+### 模块化处理
+使用Commonjs规范require模块，模块化的不仅仅是js，也可以是css、图片  
+将css转化成内联样式，减少请求次数.甚至css都是打包在js里去动态添加到dom文档中去。
+### 无法处理HTML页面上的图片引用
+
+### 加载器
+使用加载器对特定的文件进行处理    
+
+加载器符合链式调用规范。多个loader可以用在同一个文件上并且被链式调用。链式调用时从右到左执行且loader之间用“!”来分割。   
+
+### 常用加载器
+style-loader:
+
+### webpack-dev-server
+webpack服务器，提供文件监听并实时打包.  
+热更新“Live Reload”以及热替换“Hot Module Replacement”（即HMR)即尝试重新加载组件改变的部分（而不是重新加载整个页面)当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。  
+
+webpack-dev-server是一个小型的node.js Express服务器,它使用webpack-dev-middleware中间件来为通过webpack打包生成的资源文件提供Web服务。它还有一个通过Socket.IO连接着webpack-dev-server服务器的小型运行时程序。webpack-dev-server发送关于编译状态的消息到客户端，客户端根据消息作出响应。  
+
+webpack-dev-server教程:
+[教程1](https://segmentfault.com/a/1190000006670084)  
+[教程2](https://github.com/chemdemo/chemdemo.github.io/issues/13) 
+
+
+### 参考资料
+[webpack解决方案](https://github.com/chemdemo/chemdemo.github.io/issues/13) 
