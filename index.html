@@ -13,24 +13,36 @@
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
 <style type="text/css">
-	a[data-property]{
-		color: #ddd;
-		display: inline-block;
-		width: 100px;
-		height: 100px;
-		background-color: #ddd;
-	}
-	a[data-property]:hover{
-		animation:border-radius 2s alternate;
-	}
-
-	@keyframes border-radius{
-		0%{border-radius: 0}
-		100%{border-radius: 50%}
-	}
 </style>
 </head>
 <body>
-    <a data-property='background' data-from='0' data-to='50%'></a>
+	<ul class='list'>
+	</ul>
+	<script type="text/javascript">
+		var getClassName = function(classStr,elemName){
+			if(document.getElementsByClassName){
+				return document.getElementsByClassName(classStr);
+			}
+
+			var collection = document.getElementsByTagName(elemName);
+			return Array.prototype.slice.call(collection).filter(function(element) {
+				return hasClass(element,classStr);
+			});
+		}
+
+		var hasClass = function(element,classStr){
+			var elemClass = element.className.split(/\s+/);
+			for(var classname of elemClass){
+				if(classname == classStr){
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		var nodelist = getClassName('list','ul');
+		console.log(nodelist);
+	</script>
 </body>
 </html>
