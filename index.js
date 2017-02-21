@@ -1,4 +1,2 @@
-// import test from './test/'
-// console.log(test)
-var test = require('./test');
-console.log(test)
+var a = '123';
+console.log(JSON.stringify(a))
