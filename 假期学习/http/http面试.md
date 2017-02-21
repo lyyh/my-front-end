@@ -54,3 +54,4 @@ User-Agent 会讲创建请求的浏览器和用户代理名称等信息传达给
 
 ### 参考资料
 [面试HTTP](https://gold.xitu.io/post/5872309261ff4b005c4580d4)
+[如何优雅的面试](http://www.jianshu.com/p/52d86558ca57?nomobile=yes)

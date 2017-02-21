@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv=Content-Type content="text/html;charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="yes" name="apple-touch-fullscreen">
-<meta content="telephone=no,email=no" name="format-detection">
-<title>Examples</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="" rel="stylesheet">
-<style type="text/css">
-</style>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+
+    </style>
 </head>
+
 <body>
-	<ul class='list'>
-	</ul>
-	<script type="text/javascript">
-		var getClassName = function(classStr,elemName){
-			if(document.getElementsByClassName){
-				return document.getElementsByClassName(classStr);
-			}
+    <ul class='list'>
+    	<li>sdaf</li>
+    </ul>
+    <script type="text/javascript">
+    function createDocument() {
+        var fragment = document.createDocumentFragment();
+        for (var i = 0; i < 10; i++) {
+            var divNode = document.createElement('div');
+            divNode.innerHTML = 'this is ' + i;
+            fragment.appendChild(divNode);
+        }
+        document.getElementsByClassName('list')[0].appendChild(fragment)
+    }
 
-			var collection = document.getElementsByTagName(elemName);
-			return Array.prototype.slice.call(collection).filter(function(element) {
-				return hasClass(element,classStr);
-			});
-		}
+    function cloneNodes(){
+    	var list = document.getElementsByClassName('list')[0];
+    	var cloneNode = list.cloneNode(true);
+    	console.log(cloneNode)
+    	// cloneNode.innerHTML = '<div>asdf</div>'
+    	// list.parentNode.replaceChild(cloneNode,list)
+    }
 
-		var hasClass = function(element,classStr){
-			var elemClass = element.className.split(/\s+/);
-			for(var classname of elemClass){
-				if(classname == classStr){
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		var nodelist = getClassName('list','ul');
-		console.log(nodelist);
-	</script>
+    cloneNodes();
+    </script>
 </body>
+
 </html>
