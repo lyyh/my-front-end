@@ -1,9 +1,3 @@
-function *foo(){
-    yield 'a';
-    yield 'b';
-    yield 'c';
+export default {
+	a:1
 }
-for(let i of foo){
-    console.log(i)
-}
-
