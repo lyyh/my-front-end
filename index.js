@@ -1,12 +1,4 @@
-var a = {
-    a: 1,
-    valueOf:function(){
-    	a = 2;
-    	return 1;
-    },
-    toString:function(){
-    	a = 3;
-    	return 3;
-    }
+var array = [1,'1',{a:1}];
+for(var i of array){
+	console.log(i)
 }
-console.log(a==1)

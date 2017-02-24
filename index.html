@@ -23,25 +23,6 @@
     	<li>sdaf</li>
     </ul>
     <script type="text/javascript">
-    function createDocument() {
-        var fragment = document.createDocumentFragment();
-        for (var i = 0; i < 10; i++) {
-            var divNode = document.createElement('div');
-            divNode.innerHTML = 'this is ' + i;
-            fragment.appendChild(divNode);
-        }
-        document.getElementsByClassName('list')[0].appendChild(fragment)
-    }
-
-    function cloneNodes(){
-    	var list = document.getElementsByClassName('list')[0];
-    	var cloneNode = list.cloneNode(true);
-    	console.log(cloneNode)
-    	// cloneNode.innerHTML = '<div>asdf</div>'
-    	// list.parentNode.replaceChild(cloneNode,list)
-    }
-
-    cloneNodes();
     </script>
 </body>
 
