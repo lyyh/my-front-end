@@ -19,11 +19,13 @@
             height: 100px;
             background-color: #ddd;
             margin-bottom: 50px;
+            
         }
         .inner-box{
             margin-top: 50px;
             height: 50px;
             width: 50px;
+            float: left;
             background-color: red
         }
         .inner-box-1{
@@ -36,6 +38,11 @@
     <div class="box">
     </div>
      <div class="inner-box"></div>
+     <script type="text/javascript">
+         var a = document.getElementsByClassName('box')[0];
+         console.log(a)
+         console.log(a.currentStyle)
+     </script>
 </body>
 
 </html>
