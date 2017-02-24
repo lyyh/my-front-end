@@ -34,3 +34,4 @@ inline-block元素和其他任何元素之间不发生外边距叠加 (包括和
 
 ### 参考资料
 [cssmargin重叠](http://www.smallni.com/collapsing-margin/)
+[张鑫旭cssmargin重叠问题](http://www.zhangxinxu.com/study/200908/margin-overlap.html)
