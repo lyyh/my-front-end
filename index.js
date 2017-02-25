@@ -1,16 +1,12 @@
-var http = require('http');
-var zlib = require('zlib');
-var options = {
-    hostname: 'www.example.com',
-    port: 80,
-    path: '/upload',
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-};
+var foo = 'get-element-by-id';
 
-http.createServer(function(req,res){
-	res.writeHead('Access-Control-Allow-Origin','*');
-	res.write('123213')
-}).listen(8000);
+function convertTouFeng(foo) {
+    var findStr = foo.match(/-\w/g);
+    findStr.forEach(function(value) {
+        var upperChar = value.match(/\w/g)[0].toUpperCase();
+        foo = foo.replace(value, upperChar);
+    })
+    return foo;
+}
+
+console.log(convertTouFeng(foo))
