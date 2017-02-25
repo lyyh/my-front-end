@@ -1,12 +1,11 @@
-var foo = 'get-element-by-id';
+var obj = {
+    bar: 1,
+    foo: 2,
+    baz: 3
+};
 
-function convertTouFeng(foo) {
-    var findStr = foo.match(/-\w/g);
-    findStr.forEach(function(value) {
-        var upperChar = value.match(/\w/g)[0].toUpperCase();
-        foo = foo.replace(value, upperChar);
-    })
-    return foo;
+for(var i in obj){
+	if(obj.hasOwnProperty(i)){
+		console.log(i)
+	}
 }
-
-console.log(convertTouFeng(foo))
