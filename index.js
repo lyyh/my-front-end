@@ -1,11 +1,5 @@
-var obj = {
-    bar: 1,
-    foo: 2,
-    baz: 3
-};
-
-for(var i in obj){
-	if(obj.hasOwnProperty(i)){
-		console.log(i)
-	}
+var arr = [1,2,3,4];
+arr.name = '123';
+for(var i in arr){
+	console.log(i)
 }
