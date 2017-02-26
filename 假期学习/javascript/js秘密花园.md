@@ -1,4 +1,3 @@
-## 对象
 ### 对象使用和属性
 JavaScript 中所有变量都可以当作对象使用，除了两个例外 null 和 undefined。  
 对于数字字面量不能当做对象使用。这是因为 JavaScript 解析器的一个错误， 它试图将点操作符解析为浮点数字面值的一部分。    
@@ -401,7 +400,7 @@ instanceof 用来比较属于不同JavaScript上下文的对象（比如，浏�
 JavaScript 是弱类型语言，所以会在任何可能的情况下应用强制类型转换。
 ```
 // 下面的比较结果是：true
-new Number(10) == 10; // Number.toString() 返回的字符串被再次转换为数字
+new Number(10) == 10; // Number.valueOf() 返回的字符串被再次转换为数字
 
 10 == '10';           // 字符串被转换为数字
 10 == '+10 ';         // 同上
@@ -578,3 +577,6 @@ bar();
 由于 eval 在这种情况下不是被直接调用，因此传递到 setTimeout 的字符串会自全局作用域中执行； 因此，上面的回调函数使用的不是定义在 bar 作用域中的局部变量 foo。    
 
 绝对不要使用字符串作为 setTimeout 或者 setInterval 的第一个参数， 这么写的代码明显质量很差。当需要向回调函数传递参数时，可以创建一个匿名函数，在函数内执行真实的回调函数。另外，应该避免使用 setInterval，因为它的定时执行不会被 JavaScript 阻塞。 
+
+### 参考资料
+[javascript秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/#other.timeouts)
