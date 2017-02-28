@@ -1,5 +1,4 @@
-function foo(){
-	return 
-	a + 1
+var a = 1;
+if (x = a == 1) {
+    console.log(1)
 }
-console.log(foo())
