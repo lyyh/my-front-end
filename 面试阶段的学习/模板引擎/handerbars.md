@@ -42,7 +42,13 @@ With helpers:切换上下文
 each helpers:each helper 来循环一个列表，循环中可以使用 this 来代表当前被循环的列表项。
 事实上，可以使用 this 表达式在任何上下文中表示对当前的上下文的引用。  
 
-if helper:if 表达式可以选择性的渲染一些区块。如果它的参数返回 false, undefined, null, "" 或 []（译注：还有 0）（都是JS中的“假”值），Handlebars 就不会渲染这一块内容：  
+if helper:if 表达式可以选择性的渲染一些区块。如果它的参数返回 false, undefined, null, "" 或 []（译注：还有 0）（都是JS中的“假”值），Handlebars 就不会渲染这一块内容：   
+
+unless helper:unless helper 和 if helper　是正好相反的，当表达式返回假值时就会渲染其内容：    
+
+log helper:log helper 可以在执行模板的时候输出当前上下文的状态。  
+
+
 
 
 
