@@ -20,6 +20,25 @@ no-cache表示必须先与服务器确认返回的响应是否被更改，然后
 
 相比之下，浏览器可以缓存private响应，但是通常只为单个用户缓存，因此，不允许任何中继缓存对其进行缓存 - 例如，用户浏览器可以缓存包含用户私人信息的 HTML 网页，但是 CDN 不能缓存。  
 
+### Pragma
+http1.0的旧社会遗留物，值为'no-cache'禁用缓存
+Pragma的优先级高于Cache-Control  
+
+### Expires
+http1.0,实体主体的过期时间  
+Expires的值对应一个GMT,，比如Mon, 22 Jul 2002 11:12:01 GMT来告诉浏览器资源缓存过期时间，如果还没过该时间点则不发请求。  
+响应报文中Expires所定义的缓存时间是相对服务器上的时间而言的，其定义的是资源“失效时刻”，如果客户端上的时间跟服务器上的时间不一致（特别是用户修改了自己电脑的系统时间），那缓存时间可能就没啥意义了。  
+### 优先级
+Pragma > Cache-Control >Expires  
+
+### Last-modified
+服务器将资源传递给客户端时，会将资源最后更改的时间以“Last-Modified: GMT”的形式加在实体首部上一起返回给客户端。  
+```
+Last-Modified: Fri, 22 Jul 2016 01:47:00 GMT
+```
+
+
+
 ### 其他
 [参考资料](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn)
 
