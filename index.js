@@ -1,6 +1,3 @@
-var start = new Date;
-setTimeout(function(){
-var end = new Date;
-console.log('Time elapsed:', end - start, 'ms');
-}, 500);
-while (new Date - start < 1000) {};
+var a = [1,2,3,4]
+console.log(a.splice(1,0,[2,3]));
+console.log(a)
