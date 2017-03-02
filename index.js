@@ -1,3 +1,8 @@
-var a = [1,2,3,4]
-console.log(a.splice(1,0,[2,3]));
+console.time();
+var a = [];
+for(var i = 0;i < 100;i++){
+	a.push(i);
+}
+
 console.log(a)
+console.timeEnd()

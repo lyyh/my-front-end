@@ -16,16 +16,10 @@
 </head>
 
 <body>
-    <button id='begin'>开始筛选</button>
+    <div class='a'></div>
     <script type="text/javascript">
-    window.document.onclick = function(argument) {
-        alert("click");
-    }
-    setTimeout(function(argument) {
-        alert("timeout");
-    }, 0)
-    var now = (new Date()).getTime();
-    while ((new Date()).getTime() - now < 3000) {}
+           var a = document.getElementsByClassName('a')[0];
+           console.log(a.attributes['class'].nodeValue)
     </script>
 </body>
 
