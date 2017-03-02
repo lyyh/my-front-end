@@ -16,10 +16,12 @@
 </head>
 
 <body>
-    <div class='a'></div>
+    <div class='a' id='b' style="height: 100px;width: 100px;background-color: #ddd"></div>
     <script type="text/javascript">
-           var a = document.getElementsByClassName('a')[0];
-           console.log(a.attributes['class'].nodeValue)
+    document.getElementById('b').addEventListener('click', function(event) {
+        console.log(event.pageX)
+        console.log(event.pageY)
+    })
     </script>
 </body>
 

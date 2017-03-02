@@ -1,8 +1,7 @@
-console.time();
-var a = [];
-for(var i = 0;i < 100;i++){
-	a.push(i);
-}
-
+var a = {};
+var b = { key: 'b' };
+var c = { key: 'c' };
+a[b] = 123;
 console.log(a)
-console.timeEnd()
+a[c] = 456;
+console.log(a[b])
