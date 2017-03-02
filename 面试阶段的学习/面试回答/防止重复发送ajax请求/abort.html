@@ -20,29 +20,106 @@
     <div id='text'></div>
     <button id='btn'>fetch</button>
     <script type="text/javascript">
-    var AjaxGet = null;
+    //abort
+    // var AjaxGet = null;
+    // $('#btn').click(function() {
+    //     if (AjaxGet != null) {
+    //         console.log(AjaxGet)
+    //         AjaxGet.abort();
+    //     }
+    //     AjaxGet = $.ajax({
+    //             url: 'http://localhost:8080',
+    //             type: 'get',
+    //             dataType: 'json'
+    //         })
+    //         .done(function(data) {
+    //             console.log(AjaxGet)
+    //             $('#text').html(JSON.stringify(data));
+    //         })
+    //         .fail(function() {
+    //             console.log("error");
+    //         })
+    //         .always(function() {
+    //             AjaxGet = null;
+    //             console.log("complete");
+    //         });
+    // })
+
+    //规定请求时间间隔
+    // var timer = null;
+    // $('#btn').click(function() {
+    //     if (timer) {
+    //         clearTimeout(timer);
+    //         console.log(timer);
+    //     }
+    //     timer = setTimeout(function() {
+    //         $.ajax({
+    //                 url: 'http://localhost:8080',
+    //                 type: 'get',
+    //                 dataType: 'json'
+    //             })
+    //             .done(function(data) {
+    //                 $('#text').html(JSON.stringify(data));
+    //             })
+    //             .fail(function() {
+    //                 console.log("error");
+    //             })
+    //             .always(function() {
+    //                 console.log("complete");
+    //             });
+    //     }, 200)
+    // })
+
+    // var id = 0;
+    // //第二个请求比第一个请求先返回解决方案
+    // $('#btn').click(function() {
+    //     var eventId = ++id;
+    //     $.ajax({
+    //             url: 'http://localhost:8080',
+    //             type: 'get',
+    //             dataType: 'text'
+    //         })
+    //         .done(function(data) {
+    //         	if(eventId === id){
+    //             	$('#text').html(data);
+    //         	}
+    //         })
+    //         .fail(function() {
+    //             console.log("error");
+    //         })
+    //         .always(function() {
+    //             console.log("complete");
+    //         });
+    // })
+
+    var currentRequests = {};
+
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+        if (options.abortOnRetry) {
+            if (currentRequests[options.url]) {
+                currentRequests[options.url].abort();
+            }
+            currentRequests[options.url] = jqXHR;
+        }
+    });
+
     $('#btn').click(function() {
-    	if(AjaxGet != null){
-    		console.log(AjaxGet)
-    		AjaxGet.abort();
-    	}
-    	AjaxGet = $.ajax({
-    		url: 'http://localhost:8080',
-    		type: 'get',
-    		dataType: 'json'
-    	})
-    	.done(function(data) {
-    		console.log(data)
-    		console.log(AjaxGet)
-    		$('#text').html(JSON.stringify(data));
-    	})
-    	.fail(function() {
-    		console.log("error");
-    	})
-    	.always(function() {
-    		AjaxGet = null;
-    		console.log("complete");
-    	});
+        $.ajax({
+                url: 'http://localhost:8080',
+                type: 'get',
+                dataType: 'text',
+                abortOnRetry: true
+            })
+            .done(function(data) {
+            	console.log(data)
+                $('#text').html(data);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
     })
     </script>
 </body>
