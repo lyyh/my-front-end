@@ -14,22 +14,21 @@
     <meta name="keywords" content="">
     <link href="" rel="stylesheet">
     <style type="text/css">
-        .parent{
-            width: 500px;
-            height: 500px;
-            overflow: auto;
-            background-color: #ddd;
-            position: relative;
-        }
-        .child{
-            width: 300px;
-            height: 300px;
-            background-color: #ddd;
-            border: 10px solid #333;
-            position: relative;
-            right: -50px;
-            bottom: -50px;
-        }
+    .parent {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        background-color: #ddd;
+    }
+    
+    .child {
+        padding:10px;
+        margin: 5px;
+        width: 300px;
+        height: 300px;
+        background-color: #ddd;
+        border: 10px solid #333;
+    }
     </style>
 </head>
 
@@ -38,8 +37,14 @@
         <div class="child"></div>
     </div>
     <script type="text/javascript">
-        var child = document.querySelector('.child');
-        console.log(child.scrollTop)
+    var parent = document.querySelector('.parent');
+    // parent.scrollHeight = '10px'
+    console.log(parent.scrollWidth);
+    console.log(parent.scrollHeight);
+    console.log(parent.offsetWidth);
+    console.log(parent.offsetHeight);
+    console.log(parent.clientWidth);
+    console.log(parent.clientHeight);
     </script>
 </body>
 
