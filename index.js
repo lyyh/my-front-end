@@ -1,6 +1,8 @@
 var promise = new Promise(function(resolve, reject) {
-  throw new Error('test');
+  resolve(function(){
+  	console.log(123)
+  })
 });
-promise.catch(function(error) {
-  console.log(error);
+promise.then(function(fn) {
+	fn()
 });

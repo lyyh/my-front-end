@@ -20,6 +20,12 @@ Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定�
 
 如果异步操作抛出错误，状态就会变为Rejected，就会调用catch方法指定的回调函数，处理这个错误。另外，then方法指定的回调函数，如果运行中抛出错误，也会被catch方法捕获。  
 
+Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。  
+
+一般来说，不要在then方法里面定义Reject状态的回调函数（即then的第二个参数），总是使用catch方法。  
+
+跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise对象抛出的错误不会传递到外层代码，即不会有任何反应。  
+
 ### Promise/A+规范
 1.一个promise可能有三种状态：等待（pending）、已完成（fulfilled）、已拒绝（rejected）  
 2.一个promise的状态只可能从“等待”转到“完成”态或者“拒绝”态，不能逆向转换，同时“完成”态和“拒绝”态不能相互转换    
