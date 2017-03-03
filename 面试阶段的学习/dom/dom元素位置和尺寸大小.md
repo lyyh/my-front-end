@@ -16,10 +16,11 @@ scrollTop
 
 1. clientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分  
 
-2. offsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框，不包括外边距和滚动条部分  
+2. offsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框+滚动条，不包括外边距  
 
 3. scrollWidth和scrollHeight  
-元素完整的高度和宽度，overflow:hidden的部分也计算在内。  
+子元素完整的高度和宽度,上下边距,左边距，overflow:hidden的部分也计算在内。 
+
 
 4.clientTop和clientLeft返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度  
 

@@ -24,7 +24,33 @@ Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到
 
 一般来说，不要在then方法里面定义Reject状态的回调函数（即then的第二个参数），总是使用catch方法。  
 
-跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise对象抛出的错误不会传递到外层代码，即不会有任何反应。  
+跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise对象抛出的错误不会传递到外层代码，即不会有任何反应。   
+
+### Promise.all
+Promise.all方法用于将多个Promise实例，包装成一个新的Promise实例。  
+```
+var p = Promise.all([p1, p2, p3]);
+```
+上面代码中，Promise.all方法接受一个数组作为参数，p1、p2、p3都是Promise对象的实例，如果不是，就会先调用下面讲到的Promise.resolve方法，将参数转为Promise实例，再进一步处理。（Promise.all方法的参数可以不是数组，但必须具有Iterator接口，且返回的每个成员都是Promise实例。）  
+
+p的状态由p1、p2、p3决定，分成两种情况。  
+（1）只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。  
+（2）只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数  
+
+### Promise.race
+上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。  
+```
+var p = Promise.race([p1, p2, p3]);
+```
+
+上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。  
+
+如果指定时间内没有获得结果，就将Promise的状态变为reject，否则变为resolve。
+
+### Promise.resolve
+有时需要将现有对象转为Promise对象，Promise.resolve方法就起到这个作用。  
+
+
 
 ### Promise/A+规范
 1.一个promise可能有三种状态：等待（pending）、已完成（fulfilled）、已拒绝（rejected）  
