@@ -1,6 +1,11 @@
 ### Event
 那么什么是DOM事件中Event对象呢？事件对象（event object）指的是与特定事件相关且包含该事件详细信息的对象。我们可以通过传递给事件处理程序的参数获取事件触发后所产生的一系列方法和属性。  
 
+1.event代表事件的状态，例如触发event对象的元素、鼠标的位置及状态、按下的键等等；  
+2.event对象只在事件发生的过程中才有效。  
+
+
+
 Event是一个事件处理程序的参数，当调用事件时，只需要将其传入事件处理函数就可以获取。  
 ```
 function getEvent(event) {
@@ -87,3 +92,38 @@ function goFn(event) {
     console.log(target === go) // 返回true
 }
 ```
+3. 鼠标事件属性  
+在用鼠标触发事件时，主要的事件属性包含鼠标的位置和按键的状态，比如：clientX和clientY指定了鼠标在窗口坐标中的位置，button和which指定了按下的鼠标键是哪个。  
+```
+function moveFn(event) {
+    console.log(event.screenX) // 获取鼠标基于屏幕的X轴坐标
+    console.log(event.screenY) // 获取鼠标基于屏幕的Y轴坐标
+    console.log(event.clientX) // 获取鼠标基于浏览器窗口的X轴坐标
+    console.log(event.clientY) // 获取鼠标基于浏览器窗口的Y轴坐标
+    console.log(event.pageX) // 获取鼠标基于文档的X轴坐标
+    console.log(event.pageY) // 获取鼠标基于文档的Y轴坐标
+}
+
+function clickFn(event) {
+    console.log(event.button) // 获取鼠标按下的键。非IE浏览器中0为鼠标左键，1为鼠标中键，2为鼠标右键
+    console.log(event.which) // 获取指定事件上哪个键盘键或鼠标按钮被按下
+}
+
+document.addEventListener('mouseover', moveFn, false);
+document.addEventListener('click', clickFn, false);
+```
+
+4.键盘事件属性  
+在用键盘触发事件时，主要的事件属性包含键盘的按键keyCode和是否按下特殊键，比如：keyCode指定了按下键的键码值，ctrlKey指定是否按下了ctrl键。  
+```
+function keyFn(event) {
+    console.log(event.keyCode); // 获取按下键的键码值
+    console.log(event.ctrlKey); // 获取是否按下了ctrl键
+    console.log(event.shiftKey); // 获取是否按下了shift键
+    console.log(event.altKey); // 获取是否按下了alt键
+    console.log(event.metaKey); // 获取是否按下了meta键
+}
+
+document.addEventListener('keyup', keyFn, false);
+```
+
