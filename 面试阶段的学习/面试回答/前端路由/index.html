@@ -34,8 +34,8 @@
 
     $('#list1,#list2,#list3').click(function() {
         var fragment = $(this).attr('id');
-        window.location.href = 'http://localhost:8080/#' + fragment;
-        // window.history.pushState({fragment:fragment}, null, 'http://localhost:8080/' + fragment+'#'+fragment);
+        // window.location.href = 'http://localhost:8080/#' + fragment;
+        window.history.pushState({fragment:fragment}, null, 'http://localhost:8080/' + fragment+'#'+fragment);
 
         $.ajax({
          url: 'http://localhost:8080/'+fragment,
