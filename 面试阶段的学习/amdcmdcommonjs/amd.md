@@ -48,6 +48,6 @@ define(function(require, exports, module) {
 
 
 ### 参考资料
-[AMD规范中的CommonJsWrapper](https://imququ.com/post/amd-simplified-commonjs-wrapping.html)
+[AMD规范中的CommonJsWrappergit](https://imququ.com/post/amd-simplified-commonjs-wrapping.html)
 
 
