@@ -14,36 +14,23 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src='index.js'></script>
+    <style type="text/css">
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+        }
+        .sub{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <a id='aLabel' href="">xss</a>
-    <div id='box'></div>
-    <div id='box1'></div>
-    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $('#aLabel').click(function() {
-        $(this).attr('href', encodeURIComponent('http://www.baidu.com'))
-    });
-
-    $('#box').html('<p>123213</p>')
-    $('#box1').text('<p>123213</p>')
-
-    //html文档编码
-    function htmlencode(s) {
-        var div = document.createElement('div');
-        div.appendChild(document.createTextNode(s));
-        return div.innerHTML;
-    }
-
-    $("#box").html(htmlencode('<p>123213</p>'));
-    function htmldecode(s) {
-        var div = document.createElement('div');
-        div.innerHTML = s;
-        return div.innerText || div.textContent;
-    }
-
-    </script>
+    <div class="box"></div>
+    <div class="sub"></div>
 </body>
 
 </html>

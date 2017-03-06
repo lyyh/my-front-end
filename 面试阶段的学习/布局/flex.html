@@ -14,29 +14,25 @@
     <meta name="keywords" content="">
     <link href="" rel="stylesheet">
     <style type="text/css">
-    .sub {
-        width: 200px;
-        float: left;
-        background-color: #ddd;
-    }
-    
-    .extra {
-        width: 200px;
-        float: right;
-        background-color: red;
-    }
-    
-    .main {
-        margin: 0 200px 0 200px;
-        background-color: green;
-    }
+    	.layout{
+    		display: flex;
+    	}
+    	.main{
+    		flex:1;
+    		background-color: #ddd;
+    	}
+    	.aside{
+    		width: 200px;
+    		background-color: red;
+    	}
     </style>
 </head>
 
 <body>
-    <div class="sub">sub</div>
-    <div class="main">main</div>
-    <div class="extra">extra</div>
+    <div class="layout">
+        <div class="aside">1232132</div>
+        <div class="main">123123123</div>
+    </div>
 </body>
 
 </html>
