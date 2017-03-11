@@ -10,7 +10,17 @@
 </head>
 
 <body>
-    <table></table>
+	<div id="a">
+		<span>123123</span>
+	</div>
+	<!-- <div id="a"></div> -->
+	<div class="b"></div>
+	<script type="text/javascript">
+		console.log(document.querySelectorAll('#a')[0]);
+		console.log(document.getElementById('a'));
+		console.log(document.getElementById('a').childNodes);
+		console.log(document.getElementsByClassName('b'));
+	</script>
 </body>
 
 </html>
