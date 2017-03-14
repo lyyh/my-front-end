@@ -31,6 +31,7 @@ null == undefined; // true
 ```
 
 null通常座位一个空引用或者空对象的预期，就想一个占位符。   
+null通常
 
 ### 参考
 [javascript密码花园](https://bonsaiden.github.io/JavaScript-Garden/zh/#core.undefined)  
