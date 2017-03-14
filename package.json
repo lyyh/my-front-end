@@ -1,26 +1,28 @@
 {
-  "name": "my-front-end",
-  "version": "1.0.0",
-  "description": "坚持做到每天写一篇总结",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lyyh/my-front-end.git"
-  },
-  "keywords": [],
-  "author": "liuyh <374659635@qq.com> (http://blog.liuyanhao.cn/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lyyh/my-front-end/issues"
-  },
-  "homepage": "https://github.com/lyyh/my-front-end#readme",
-  "dependencies": {
-    "async": "^2.1.4",
-    "eventproxy": "^0.3.5",
-    "express": "^4.14.0",
-    "express-session": "^1.14.1"
-  }
+    "name": "my-front-end",
+    "version": "1.0.0",
+    "description": "坚持做到每天写一篇总结",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lyyh/my-front-end.git"
+    },
+    "keywords": [],
+    "author": "liuyh <374659635@qq.com> (http://blog.liuyanhao.cn/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lyyh/my-front-end/issues"
+    },
+    "homepage": "https://github.com/lyyh/my-front-end#readme",
+    "dependencies": {
+        "async": "^2.1.4",
+        "eventproxy": "^0.3.5",
+        "express": "^4.14.0",
+        "express-session": "^1.14.1",
+        "gulp": "^3.9.1",
+        "gulp-connect": "^5.0.0"
+    }
 }
