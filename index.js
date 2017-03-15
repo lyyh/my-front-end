@@ -1,8 +1,4 @@
-var promise = new Promise(function(resolve, reject) {
-  resolve(function(){
-  	console.log(123)
-  })
-});
-promise.then(function(fn) {
-	fn()
-});
+process.on('message',function(data){
+	console.log(data)
+})
+process.send({foo:'bar'});
