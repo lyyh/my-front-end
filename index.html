@@ -5,22 +5,29 @@
     <meta charset="utf-8">
     <title></title>
     <style type="text/css">
-
+    .a {
+        height: 100px;
+        background-color: #ddd;
+        margin-bottom: 50px;
+    }
+    .a:before{
+    	content: '';
+    }
+    .b {
+    	filter: alpha(opacity=60);
+    	display: table;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        margin-top: 50px;
+    }
     </style>
 </head>
 
 <body>
-	<div id="a">
-		<span>123123</span>
-	</div>
-	<!-- <div id="a"></div> -->
-	<div class="b"></div>
-	<script type="text/javascript">
-		console.log(document.querySelector('#a') instanceof Element);
-		console.log(document.getElementById('a') instanceof Element);
-		console.log(document.getElementById('a').childNodes);
-		console.log(document.getElementsByClassName('b'));
-	</script>
+    <div class="a">
+        <div class='b'></div>
+    </div>
 </body>
 
 </html>
