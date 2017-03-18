@@ -41,6 +41,8 @@ fs.readFile('file2.txt', 'utf8', done());
 #### yield
 yield关键字让Generator内部的逻辑循环能够切割成多个部分。  
 yield切割逻辑  
+yield只能暂停Generator内部的逻辑，它并不是真正暂停整个线程，Generator外的业务逻辑依然会被继续执行下去。  
+
 
 ```
 var compute = function* (a, b) {
@@ -51,9 +53,19 @@ var compute = function* (a, b) {
 执行next方法之后，foo的结果为undefined，要想影响yield，可以通过next方法传参，  
 
 ### next
-每次调用next的时候都会返回一个对象,布尔值done表示generator逻辑块是否执行完，value表示执行完yield语句后的表达式结果。
+每次调用next的时候都会返回一个对象,布尔值done表示generator逻辑块是否执行完，value表示执行完yield语句后的表达式结果。  
+
+可以通过next传递参数，赋值给yield关键字前面的变量声明  
+
 
 ### Generator异步编程
+Generator将逻辑分块执行，获取上一段逻辑执行的结果，使用next()把结果传递给下一段逻辑继续执行。  
+
+1.需要在回调函数中置入逻辑，用于搜集回调函数传入的数据  
+2.通过.next()传入异步执行的结果，传递给yield,让业务流程继续执行  
+
+### 小结
+Generator进行流程控制的几个要点，每个异步方法都要标准化为yield关键字能够接受的方法，使我们有机会注入特殊逻辑，其次需要巧妙地将异步调用执行完成得到的结果通过.next()传递给下一段流程。最后，需要递归地将业务逻辑执行完成。  
 
 
 ### 参考资料
