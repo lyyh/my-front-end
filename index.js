@@ -1,11 +1,7 @@
-var A = function(){
-	this.a = 1;
-	this.b = 2;
-}
-A.prototype.c = 1;
+function A(a,b){
+	console.log(a)
+	console.log(b)
+	console.log(this)
+}.bind({a:1})
+A()
 
-var a = new A();
-console.log(a)
-
-var a1 = JSON.parse(JSON.stringify(a));
-console.log(a1)
