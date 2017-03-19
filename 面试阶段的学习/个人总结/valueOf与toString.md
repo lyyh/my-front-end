@@ -8,3 +8,4 @@ Boolean、Number、String有自己的原型valueOf方法。
 
 
 ### 参考资料
+[valueOf方法](http://www.cnblogs.com/chyingp/archive/2013/02/22/valueOf.html)  
