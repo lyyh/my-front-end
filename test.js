@@ -20,6 +20,6 @@
 // var ret = { a: new Date, b: { c: {} } }.clone();
 // console.log(ret);
 
-var a = 1;
-console.log(a.constructor)
-console.log(new a.constructor)
+// var a = 1;
+// console.log(a.constructor)
+// console.log(new a.constructor)
