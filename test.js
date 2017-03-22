@@ -1,22 +1,22 @@
-var cloneObj = function(obj) {
-    var str, newobj = obj.constructor === Array ? [] : {};
-    if (typeof obj !== 'object') {
-        return;
-    } else if (JSON) {
-        str = JSON.stringify(obj), //系列化对象
-            newobj = JSON.parse(str); //还原
-    } else {
-        for (var i in obj) {
-            newobj[i] = typeof obj[i] === 'object' ?
-                cloneObj(obj[i]) : obj[i];
-        }
+Function.prototype.bind = function(that) {
+    var _this = this;
+    var args = Array.prototype.slice.call(arguments, 1);
+    return function() {
+        return _this.apply(that,args);
     }
-    return newobj;
-};
-var A = function() {
-    this.a = 1;
-    this.b = 2;
 }
-A.prototype.c = 3;
-var ret = cloneObj(new A());
-console.log(ret)
+
+var test = function(a,b){
+    console.log('作用域绑定 '+ this.value)
+    console.log('testBind参数传递 '+ a.value2)
+    console.log('调用参数传递 ' + b)
+}
+var obj = {
+    value:'ok'
+}
+var fun_new = test.bind(obj,{value2:'also ok'})
+
+fun_new ('hello bind')
+// 作用域绑定 ok
+// testBind参数传递 also ok
+// 调用参数传递  undefined
