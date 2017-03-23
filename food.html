@@ -16,27 +16,28 @@
     <style type="text/css">
     .sub {
         width: 200px;
-        float: left;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
         background-color: #ddd;
     }
     
-    .extra {
-        width: 200px;
-        float: right;
-        background-color: red;
-    }
-    
-    .main {
-        margin: 0 200px 0 200px;
-        background-color: green;
+    .parent {
+        width: 500px;
+        height: 500px;
+        position: relative;
     }
     </style>
 </head>
 
 <body>
-    <div class="sub">sub</div>
-    <div class="main">main</div>
-    <div class="extra">extra</div>
+    <div class="parent">
+        <span class='sub'>123</span>
+    </div>
 </body>
 
 </html>
