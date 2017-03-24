@@ -46,4 +46,4 @@ function A(param1, param2) {
 }
 
 var a1 = A.bind({ a: 3, b: 4 }, 1, 2);
-console.log(new a1());
+console.log(new a1()); //new关键字相当于创建一个新函数，执行当前构造函数

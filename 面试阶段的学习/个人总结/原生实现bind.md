@@ -48,6 +48,8 @@ return function(){
 对绑定过后的函数new实例化之后，需要继承原函数的原型链方法，且绑定过程中提供的this忽略，但是参数还是会继续使用。  
 使用中转函数继承原型链。  
 
+
+
 #### 参考资料
 [javascript原生一步一步实现bind分析](https://segmentfault.com/a/1190000007342882)  
 
