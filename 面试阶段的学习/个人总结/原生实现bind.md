@@ -41,4 +41,17 @@ return function(){
         )
     }    
 ```
-在原来的基础上进行改造
+在原来的基础上进行改造,可以对绑定函数传入参数。可以体现出bind的高优先级。  
+从 args.concat(Array.prototype.slice.apply(arguments,[0])) 也可以看出来，bind的参数在数组前面。  
+
+#### 原型链  
+对绑定过后的函数new实例化之后，需要继承原函数的原型链方法，且绑定过程中提供的this忽略，但是参数还是会继续使用。  
+使用中转函数继承原型链。  
+
+#### 参考资料
+[javascript原生一步一步实现bind分析](https://segmentfault.com/a/1190000007342882)  
+
+
+
+
+ 
