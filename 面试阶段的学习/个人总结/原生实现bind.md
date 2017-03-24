@@ -47,6 +47,50 @@ return function(){
 #### 原型链  
 对绑定过后的函数new实例化之后，需要继承原函数的原型链方法，且绑定过程中提供的this忽略，但是参数还是会继续使用。  
 使用中转函数继承原型链。  
+```
+Function.prototype.testBind = function(that){
+    var _this = this,
+        slice = Array.prototype.slice,
+        args = slice.apply(arguments,[1]),
+        fNOP = function () {},
+        //所以调用官方bind方法之后 有一个name属性值为 'bound '
+        bound = function(){
+            return _this.apply(that,
+                args.concat(Array.prototype.slice.apply(arguments,[0]))
+            )
+        }    
+
+    fNOP.prototype = _this.prototype;
+
+    bound.prototype = new fNOP();
+
+    return bound;
+}
+```
+
+### bind参数可不传
+如果bind不传参数的话，默认为window对象  
+使用new实例化之后更改this的绑定  
+```
+Function.prototype.testBind = function(that) {
+    var _this = this,
+        slice = Array.prototype.slice,
+        args = slice.apply(arguments, [1]),
+        fNOP = function() {},
+        bound = function() {
+            //这里的this指的是调用时候的环境
+            return _this.apply(this instanceof fNOP ? 　this : that || window,
+                args.concat(Array.prototype.slice.apply(arguments, [0]))
+            )
+        }
+    fNOP.prototype = _this.prototype;
+
+    bound.prototype = new fNOP();
+
+    return bound;
+}
+```
+
 
 
 
