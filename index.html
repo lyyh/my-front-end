@@ -4,27 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <style type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        .b{
+          /* font-size: 20px;
+           width: 10em; 
+           height: 10em;*/
+           width: 10rem;
+           height: 10rem;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="http://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $.ajax({
-            url: 'http://localhost:8080',
-            type: 'post',
-            dataType: 'text/plain',
-        })
-        .done(function() {
-            console.log("success");
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
-        });
-        
-    </script>
+    <div class="a">
+        <p class="b">
+        </p>
+    </div>
 </body>
 
 </html>

@@ -91,11 +91,10 @@ Function.prototype.testBind = function(that) {
 }
 ```
 
-
-
-
 #### 参考资料
-[javascript原生一步一步实现bind分析](https://segmentfault.com/a/1190000007342882)  
+[javascript原生一步一步实现bind分析](https://segmentfault.com/a/1190000007342882)   
+
+
 
 
 
