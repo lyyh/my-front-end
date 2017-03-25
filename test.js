@@ -1,9 +1,21 @@
-var A = function(param1,param2){
-	this.a = param1;
-	this.b = param2;
+var str = '5+3*3';
+var symbol = str.match(/[\+\-\*]/ig);
+var array = str.split(/[\+\-\*]/ig);
+var result = 0;
+result += parseFloat(array[0]);
+
+for (var i = 1; i < array.length; i++) {
+    switch (array[i]) {
+        case '+':
+            result += parseFloat(array[i + 1]);
+            break;
+        case '-':
+            result -= parseFloat(array[i + 1]);
+            break;
+        case '*':
+            result *= parseFloat(array[i + 1]);
+            break;
+    }
+
+    console.log(result)
 }
-var fn = function(cxt){
-	return this.apply(cxt,Array.prototype.slice.call(arguments,1));
-}
-var obj = new fn({value:1});
-console.log(obj)
