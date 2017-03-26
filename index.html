@@ -10,10 +10,23 @@
 </head>
 
 <body>
+	<ul id="list">
+		<li id="item1"><span>123</span></li>
+		<li id="item2">222</li>
+		<li id="item3">333</li>
+	</ul>
+	<script type="text/javascript">
+		var list = document.getElementById('list');
+		var item1 = document.getElementById('item1');
+		var item3 = document.getElementById('item3');
+		var item2 = document.getElementById('item2');
+		var item4 = document.createElement('li')
 
-  <table>
-    tr
-  </table>
+		list.replaceChild(item4,item1)
+		// var node = item.cloneNode(true);
+		// console.log(node)
+		// console.log(list.nextSibling);
+	</script>
 </body>
 
 </html>
