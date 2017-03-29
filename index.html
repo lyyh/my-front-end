@@ -5,27 +5,37 @@
     <meta charset="utf-8">
     <title></title>
     <style type="text/css">
-
+    .a{
+    	width: 200px;
+    	height: 200px;
+    	background-color: #ddd;
+    }
+    .b{
+    	width: 100px;
+    	height: 100px;
+    	background-color: red;
+    }
+    .c{
+    	width: 50px;
+    	height: 50px;
+    	background-color: blue;
+    }
     </style>
 </head>
 
 <body>
-	<ul id="list">
-		<li id="item1"><span>123</span></li>
-		<li id="item2">222</li>
-		<li id="item3">333</li>
-	</ul>
-	<script type="text/javascript">
-		var list = document.getElementById('list');
-		var item1 = document.getElementById('item1');
-		var item3 = document.getElementById('item3');
-		var item2 = document.getElementById('item2');
-		var item4 = document.createElement('li')
-		list.replaceChild(item4,item1)
-		// var node = item.cloneNode(true);
-		// console.log(node)
-		// console.log(list.nextSibling);
-	</script>
+    <div class="a">
+        <p class="b">
+            <div class="c">
+
+            </div>
+        </p>
+    </div>
+    <script type="text/javascript">
+    	document.getElementsByClassName('a')[0].addEventListener('click',function(e){
+    		console.log(e.target.nodeName)
+    	},false)
+    </script>
 </body>
 
 </html>
