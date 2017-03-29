@@ -5,36 +5,50 @@
     <meta charset="utf-8">
     <title></title>
     <style type="text/css">
-    .a{
-    	width: 200px;
-    	height: 200px;
-    	background-color: #ddd;
+    .a {
+        width: 200px;
+        height: 200px;
+        background-color: #ddd;
     }
-    .b{
-    	width: 100px;
-    	height: 100px;
-    	background-color: red;
+    
+    .b {
+        width: 100px;
+        height: 100px;
+        background-color: red;
     }
-    .c{
-    	width: 50px;
-    	height: 50px;
-    	background-color: blue;
+    
+    .c {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
     }
     </style>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="a">
-        <p class="b">
-            <div class="c">
-
-            </div>
-        </p>
+        <div class="b">
+            <p class="c">
+            </p>
+        </div>
     </div>
     <script type="text/javascript">
-    	document.getElementsByClassName('a')[0].addEventListener('click',function(e){
-    		console.log(e.target.nodeName)
-    	},false)
+    // document.getElementsByClassName('a')[0].addEventListener('click',function(e){
+    // 	console.log(e.target.nodeName)
+    // },false)
+
+    // $('.a').delegate('p','mouseover',function(e){
+    // 	console.log(e.target)
+    // })
+
+    // $('.a').delegate('.b', 'mouseleave', '123',function(event) {
+    //     console.log(event.target);
+    //     console.log(event.data)
+    // });
+    $('.a').live('click',function(event){
+    	console.log(event.target)
+    })
     </script>
 </body>
 
