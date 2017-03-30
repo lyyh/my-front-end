@@ -33,22 +33,17 @@
             </p>
         </div>
     </div>
+    <div class="a"></div>
+    <div class="a"></div>
+    <div class="a"></div>
     <script type="text/javascript">
-    // document.getElementsByClassName('a')[0].addEventListener('click',function(e){
-    // 	console.log(e.target.nodeName)
-    // },false)
+        var collection = document.getElementsByClassName('a');
+        var nodelist = document.querySelectorAll('.a');
+        console.log($('.a'))
+        console.log(collection)
+        console.log([...collection])
+        console.log([...nodelist])
 
-    // $('.a').delegate('p','mouseover',function(e){
-    // 	console.log(e.target)
-    // })
-
-    // $('.a').delegate('.b', 'mouseleave', '123',function(event) {
-    //     console.log(event.target);
-    //     console.log(event.data)
-    // });
-    $('.a').live('click',function(event){
-    	console.log(event.target)
-    })
     </script>
 </body>
 
