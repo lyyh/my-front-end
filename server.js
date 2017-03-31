@@ -5,26 +5,63 @@ const rl = readline.createInterface({
     terminal: false
 });
 
-var n = -1; // 初始状态为负数，表示还没开始读取
-var ans = 0;
+var n, q;
+var A = null;
+var B = null;
 var cur_line = 0;
-var length = -1;
+var retArray = [];
 
 rl.on('line', function(line) { // javascript每行数据的回调接口
-    var input = line.split('');
-    var sum = input[0] - '0';
-    for (var  i = 1; i < input.length; i++) {
-        switch (input[i]) {
-            case '+':
-                sum = sum + (input[i + 1] - '0');
-                break;
-            case '-':
-                sum = sum - (input[i + 1] - '0');
-                break;
-            case '*':
-                sum = sum * (input[i + 1] - '0');
-                break;
-        }
+    var x, y;
+    var datas = line.split(' ');
+    switch (cur_line) {
+        case 0:
+            n = datas[0];
+            q = datas[1];
+            cur_line++;
+            break;
+        case 1:
+            A = Array.prototype.slice.apply(datas, [0, n]);
+            cur_line++;
+            break;
+        case 2:
+            B = Array.prototype.slice.apply(datas, [0, n]);
+            cur_line++;
+            break;
+        default:
+            x = datas[0];
+            y = datas[1];
+
+            var ARET = A.map(function(value, index) {
+                if (value >= x) {
+                    return index;
+                }
+            })
+            var BRET = B.map(function(value, index) {
+                if (value >= y) {
+                    return index;
+                }
+            })
+
+            var num = ARET.filter(function(value, index) {
+                if (value !== undefined) {
+                    for (var i = 0; i <= BRET.length; i++) {
+                        if (BRET[i] !== undefined) {
+                            if (value === BRET[i]) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }).length;
+
+            retArray.push(num);
+            --q;
+            if(q===0){
+                 retArray.forEach(function(value,index){
+                    console.log(value)
+                })
+            }
     }
-    console.log(sum)
 });

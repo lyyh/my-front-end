@@ -27,23 +27,25 @@
 </head>
 
 <body>
-    <div class="a">
-        <div class="b">
-            <p class="c">
-            </p>
-        </div>
-    </div>
-    <div class="a"></div>
-    <div class="a"></div>
     <div class="a"></div>
     <script type="text/javascript">
-        var collection = document.getElementsByClassName('a');
-        var nodelist = document.querySelectorAll('.a');
-        console.log($('.a'))
-        console.log(collection)
-        console.log([...collection])
-        console.log([...nodelist])
+    document.getElementsByClassName('a')[0].addEventListener('click', function(e) {
+        console.log(e.target)
+        console.log('冒泡')
+    }, false)
+    document.getElementsByClassName('a')[0].addEventListener('click', function(e) {
+        console.log(e.target)
+        console.log('捕获')
+    }, true)
 
+    // document.getElementsByClassName('b')[0].addEventListener('click', function(e) {
+    //     console.log(e.target)
+    //     console.log(this)
+    // }, true)
+    // document.getElementsByClassName('c')[0].addEventListener('click', function(e) {
+    //     console.log(e.target)
+    //     console.log(this)
+    // }, true)
     </script>
 </body>
 
