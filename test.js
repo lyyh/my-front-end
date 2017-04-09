@@ -1,33 +1,36 @@
-var A = [3, 2, 4];
-var B = [6, 5, 8];
-var x = 4;
-var y = 8;
+var n = 4;
+var corrects = [10, 20, 30, 40];
+var sum = 0;
 
-var ARET = A.map(function(value, index) {
-    if (value >= x) {
-        return index;
+var count = Math.ceil(n * 3 / 5)
+
+var fac = function(num) {
+    if (num == 1) {
+        return num;
+    }
+    return num * fac(num - 1);
+}
+
+
+var $n = fac(n);
+
+for (var i = count; i <= n; i++) {
+    if (i == n) {
+        sum += 1;
+    } else {
+        var divisor = fac(n - i) * fac(i);
+        sum += $n / divisor;
+    }
+}
+
+var reduces = corrects.reduce(function(value, item, index) {
+    if (index == 1) {
+        return (value / 100) * (item / 100)
+    } else {
+        return value * (item / 100)
     }
 })
-var BRET = B.map(function(value, index) {
-    if (value >= y) {
-        return index;
-    }
-})
 
-// console.log(ARET)
-// console.log(BRET)
-var array = ARET.filter(function(value, index) {
-    if (value !== undefined) {
-        for (var i = 0; i <= BRET.length; i++) {
-            if (BRET[i] !== 'undefined') {
-                if (value === BRET[i]) {
-                    return true;
-                }
-            }
-        }
-    }
-
-    return false;
-});
-
-console.log(array.length)
+var ret = new Number(sum*reduces);
+console.log(ret.toFixed(5));
+// console.log((ret1 * ret).toFixed)
