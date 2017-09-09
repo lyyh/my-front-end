@@ -1,54 +1,109 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="telephone=no,email=no" name="format-detection">
-    <title>Examples</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <style type="text/css">
-
-    .box {
-        display: inline-block;
-    }
-    .sel-container div{
-    	height: 30px;
-    	line-height: 30px;
-    	text-align: center; 
-    }
+    <style>
+        body,html{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #000000;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+thead{
+    background: #3d444c;
+    color: #ffffff;
+}
+td,th{
+    border: 1px solid #e1e1e1;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
     </style>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-</head>
-
-<body>
-    <script type="text/javascript">
-    	$.ajax({
-    		url: 'http://119.29.53.178:8080/retirement/condole/selectAllCondoles.action?pageNum=1',
-    		type: 'get',
-    		contentType: 'application/json;charset=utf-8',
-    		dataType: 'json',
-    		success:function(data){
-    			console.log(data)
-    		}
-    	})
-    	.done(function(data) {
-    		console.log(data)
-    		console.log("success");
-    	})
-    	.fail(function() {
-    		console.log("error");
-    	})
-    	.always(function() {
-    		console.log("complete");
-    	});
-    	
-    </script>
-</body>
-
+    <body>
+       <table id="jsTrolley">
+    <thead><tr><th>名称</th><th>价格</th><th>操作</th></tr></thead>
+    <tbody>
+        <tr><td>产品1</td><td>10.00</td><td><a href="javascript:void(0);">删除</a></td></tr>
+        <tr><td>产品2</td><td>30.20</td><td><a href="javascript:void(0);">删除</a></td></tr>
+        <tr><td>产品3</td><td>20.50</td><td><a href="javascript:void(0);">删除</a></td></tr>
+    </tbody>
+    <tfoot><tr><th>总计</th><td colspan="2">60.70(3件商品)</td></tr></tfoot>
+</table>
+<script>
+    var items = [{
+        name: 'a',
+        price: 123
+    },{
+        name: 'a',
+        price: 123
+    },{
+        name: 'a',
+        price: 123
+    }]
+    
+    
+    add(items);
+    function add(items){
+        var sourcePrice = 60.70;
+        var $tbody =document.getElementsByTagName('tbody')[0];
+        var $tfoot = document.getElementsByTagName('tfoot')[0];
+        var len = 3 + items.length;
+        items.forEach(function(element) {
+            var aDom = document.createElement('a');
+            aDom.setAttribute('href','javascript:void(0);');
+            aDom.innerText = '删除';
+            var tdDOM1 =document.createElement('td');
+            var tdDOM2 =document.createElement('td');
+            var tdDOM3 =document.createElement('td');
+            var trDOM = document.createElement('tr');
+            tdDOM3.appendChild(aDom);
+            tdDOM1.innerText = element.name;
+            tdDOM2.innerText = element.price;
+            sourcePrice += element.price;
+            trDOM.appendChild(tdDOM1);
+            trDOM.appendChild(tdDOM2);
+            trDOM.appendChild(tdDOM3);
+            var virDom = document.createDocumentFragment();
+            virDom.appendChild(trDOM);
+            $tbody.appendChild(virDom);
+            var sp = sourcePrice.toFixed(2);
+            $tfoot.children[0].children[1].innerText = sp + '(' + len + '件商品)';
+        });
+    }
+    bind();
+    function bind(){
+        var $tbody =document.getElementsByTagName('tbody')[0];
+        var $tfoot = document.getElementsByTagName('tfoot')[0];
+        var trs = $tbody.children;
+        var sourcePrice = 0;
+        var len = $tbody.children.length;
+        for(var i = 0;i < trs.length;i++){
+            var tr = trs[i];
+            var priceTd = parseFloat(tr.children[1].innerText);
+            sourcePrice += priceTd;
+            var td = tr.children[2];
+            
+            var tda = td.children[0];
+            
+            tda.addEventListener('click',function(){
+                var trDOM = this.parentNode.parentNode;
+                var price = parseFloat(trDOM.children[1].innerText);
+                trDOM.parentNode.removeChild(trDOM);
+                sourcePrice -= price;
+                var sp = sourcePrice.toFixed(2);
+                len--;
+                if(len==0){
+                    sp = 0;
+                }
+                $tfoot.children[0].children[1].innerText = sp + '(' + len + '件商品)';
+            })
+        }
+        
+    }
+</script>
+    </body>
 </html>

@@ -4,36 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <style type="text/css">
-    .a {
-        width: 200px;
-        height: 200px;
-        background-color: #ddd;
-    }
-    
-    .b {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-        position: absolute;
-        float: left;
-    }
-    
-    .c {
-        width: 50px;
-        height: 50px;
-        background-color: blue;
-    }
-    </style>
     <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="a">
-        <div class="b">
-            
-        </div>
-    </div>
+    <ul id="container">
+        <li>1</li>
+        <li>2</li>
+        <li>...</li>
+        <li>n</li>
+    </ul>
+    <script type="text/javascript">
+    var containerBox = document.getElementById("container");
+    var lists = containerBox.childNodes;
+    var fragment = document.createDocumentFragment('ul');
+    for (var i = lists.length - 1; i > 0; i--) {
+        fragment.appendChild(lists[i]);
+    }
+    containerBox.appendChild(fragment)
+    </script>
 </body>
 
 </html>
