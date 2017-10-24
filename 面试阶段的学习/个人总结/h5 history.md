@@ -84,7 +84,7 @@ window.onload = function () {
 7. pushState是否创建了history实体
 8. 在各个ajax面板中传递信息使用histroy实体的state属性
 9. 是否能直接读取history.state属性
-10. 触发popState的时候并非使用xhr，而是从cache中读取异步内容
+10. 触发pop State的时候并非使用xhr，而是从cache中读取异步内容
 11. 同源 url 
 
 
